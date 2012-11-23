@@ -47,7 +47,7 @@ with a prefix, e.g.
     50-middle.py
     99-last.ipy  
 
-I have saved my as :: 00-virtualenv.py and now Ipython is able to look at my virtualenv packages: - Happy days are back again!
+I have saved mine as ``00-virtualenv.py`` and now Ipython is able to look at my virtualenv packages: - Happy days are back again!
 
 {% highlight python %}
 (epd)bash:~/projects/geo$ ipython
