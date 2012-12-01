@@ -119,7 +119,7 @@ With my new dataframe I then export it to a csv file and job done.
 </pre></div>
 
 
-I have been playing with QuatumGIS but not enough to add something interesting yet so I'll posting about producing shapefiles than could be use on Google maps.
+I have been playing with QuatumGIS but not enough to add something interesting yet so I'll be  posting about producing shapefiles than could be use on Google maps soon.
 
 I am done for now.
 
