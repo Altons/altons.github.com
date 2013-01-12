@@ -11,9 +11,12 @@ safe : true
 #
 title : OutSpoken Data
 tagline: Site Tagline
+gravatar_url : 199e34f059d9f042d353e9dbf2dcec69.png
+
+
 author :
   name : Alberto Negron
-  email : http://www.linkedin.com/in/albertonegron
+  linkedin : albertonegron
   github : Altons
   twitter : @Altons
   feedburner : OutspokenData
@@ -68,7 +71,7 @@ JB :
   #   http://s3.amazonaws.com/yoursite/themes/watermelon
   #   /assets
   #
-  ASSET_PATH : false
+  ASSET_PATH :
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change theme here if needed.

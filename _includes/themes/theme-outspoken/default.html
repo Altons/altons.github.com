@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+    <meta name="author" content="{{ site.author.name }}">
+    
+     <link href="http://feeds.feedburner.com/{{ site.author.feedburner }}" rel="alternate" title="{{ page.title }}" type="application/atom+xml">
+     
+ 
+  
+
+  <!–[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]–>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+  <link href='{{ ASSET_PATH }}/css/style.css' rel="stylesheet" media="all">
+  <link href='{{ ASSET_PATH }}/css/pygments.css' rel="stylesheet" media="all">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+  <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+    <a class="brand" href="/">{{ site.title }}</a>
+    <ul class="nav">
+      <li class="active"><a href="/">Home</a></li>
+            <li class="archive"><a href="/archive.html">archive</a></li>
+            <li class="page"><a href="/pages.html">pages</a></li>
+            <li class="category"><a href="/categories.html">categories</a></li>
+            <li class="tag"><a href="/tags.html">tags</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+
+ <div class="container-fluid">
+  <div class="row-fluid" >
+    <div class="span2" id="sidebar">
+      <section class="sidebar">
+    <a href="/">
+      <img src="http://www.gravatar.com/avatar/{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" />
+    </a>
+
+    <section class="name">
+      <a href="/">
+        <span id="fname">{{ site.author.name|split:' '|first }}</span>
+        <span id="lname">{{ site.author.name|split:' '|last }}</span>
+      </a>
+    </section>
+
+    <section class="meta">
+      <a href="https://github.com/{{ site.author.github }}" target="_blank"><img src="{{ ASSET_PATH }}/images/github.png" /></a>
+      <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank"><img src="{{ ASSET_PATH }}/images/twitter.png"></a>
+      <a href="http://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank"><img src="{{ ASSET_PATH }}/images/linkedin.png"></a>
+      <a href="/atom.xml"><img src="{{ ASSET_PATH }}/images/rss.png" /></a>
+
+
+    </section>
+    </div>
+    <div class="span8">
+      <!--Body content-->
+      {{ content }}
+    </div>
+    <div class="span2">
+      <!--Right sidebar  content-->
+      
+    </div>
+  </div>
+</div>
+  
+</body>
+</html>

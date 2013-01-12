@@ -1,0 +1,16 @@
+body {
+background: #F8FAF5;
+/*padding-top: 6em;*/
+font-family: 'Exo', sans-serif;
+font-size: 16px;
+}
+
+.navbar .container { height: 2em; }
+
+sidebar .avatar {
+    padding: 0;
+    margin-left: 2px;
+    border-radius: 5px; }
+
+code{color:rgba(0, 0, 0, 0.75);padding:1px 3px;}
+
