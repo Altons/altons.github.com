@@ -283,7 +283,7 @@ table(test$label, test$prediction)
 There are some posts labeled incorrectly some of the reasons behind are:
 
 - Even though we have searched by language, doesn't mean the post is written in a specific language - it only means the default language used by the twitter account is german, english etc.
-- If harder to predict correctly when message is too short.
+- It's harder to predict correctly when message is too short.
 - Simply error in prediction
 
 I hope you've found this post useful.
