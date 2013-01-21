@@ -2,7 +2,7 @@
 layout: post
 title: "Gentle Introduction to MongoDB using Pymongo"
 description: ""
-category: Python
+category: python
 tags: [Ipython, python, MongoDB, Pymongo, twitter, noSQL]
 ---
 {% include JB/setup %}
