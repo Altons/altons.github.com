@@ -16,9 +16,9 @@ This is the first of a series of articles I'll be posting here about some of the
 
 ## Bernoulli random variable
 
-It is a variable that has 2 possible outcomes: *"success"*, or *"failure"*. Success occurs with probability $$p$$ and failure with probability $$q=1-p$$
+It is a variable that has 2 possible outcomes: *"success"*, or *"failure"*. Success occurs with probability <span>\(p\)</span> and failure with probability <span>\(q=1-p\)</span>
 
-The distribution of heads and tails in coin tossing is an example of a Bernoulli distribution with $$p=q=1/2$$. The Bernoulli distribution is the simplest discrete distribution, and it the building block for other more complicated discrete distributions. The distributions of a number of variate types defined based on sequences of independent Bernoulli trials that are curtailed in some way are summarized in the following list:
+The distribution of heads and tails in coin tossing is an example of a Bernoulli distribution with <span>\(p=q=1/2\)</span>. The Bernoulli distribution is the simplest discrete distribution, and it the building block for other more complicated discrete distributions. The distributions of a number of variate types defined based on sequences of independent Bernoulli trials that are curtailed in some way are summarized in the following list:
 
 - **binomial distribution**: number of successes in n trials
 - **geometric distribution**:	number of failures before the first success
@@ -41,15 +41,15 @@ where $$\binom{n}{x}=\frac{n!}{(n-x)!x!}$$
 
 ### Binomial Distribution Properties
 
-- **Mean:** $$\mu = np$$
-- **Variance:** $$\sigma^2=npq$$
-- **Standard deviation:** $$\sigma =\sqrt{npq}$$
-- **Skewness:** $$\alpha_3=\frac{q-p}{\sqrt{npq}}$$
-- **Kurtosis:** $$\alpha_4= 3 + \frac{1-6pq}{npq}$$
-- **Moment generating function:** $$M(t) =(q+pe^t)^n$$
-- **Characteristic function:** $$\phi(\omega)=(q+pe^{i\omega})^n$$
+- **Mean:** <span> \(\mu = np \) </span>
+- **Variance:** <span>\(\sigma^2=npq\)</span>
+- **Standard deviation:** <span>\(\sigma =\sqrt{npq}\)</span>
+- **Skewness:** <span>\(\alpha_3=\frac{q-p}{\sqrt{npq}}\)</span>
+- **Kurtosis:** <span>\(\alpha_4= 3 + \frac{1-6pq}{npq}\)</span>
+- **Moment generating function:** <span>\(M(t) =(q+pe^t)^n\)</span>
+- **Characteristic function:** <span>\(\phi(\omega)=(q+pe^{i\omega})^n\)</span>
 
->Note: The special case of a binomial distribution with $n=1$ is also called the *Bernoulli distribution*.
+>Note: The special case of a binomial distribution with <span>\(n=1\)</span> is also called the *Bernoulli distribution*.
 
 ### Binomial Distribution in R
 
@@ -304,7 +304,7 @@ pbinom(2, 6, 0.5) - pbinom(1, 6, 0.5)
 
 Let X the number of times a 3 appear in five tosses of a fair die
 
-a) twice: $$P(X=2)$$
+a) twice: <span>\(P(X=2)\)</span>
 
 {% highlight r %}
 dbinom(2, 5, 1/6)
@@ -316,7 +316,7 @@ dbinom(2, 5, 1/6)
 ## [1] 0.1608
 {% endhighlight %}
 
-b) at most once: $$P(X\leqslant{1})$$
+b) at most once: <span>\(P(X\leqslant{1})\)</span>
 
 {% highlight r %}
 # At most once = P(X=0) + P(X=1) we need the cumulative probability
@@ -329,7 +329,7 @@ pbinom(1, 5, 1/6)
 ## [1] 0.8038
 {% endhighlight %}
 
-c) at least two times: $$P(X\geqslant{2})=1 -P(X\leqslant{2})$$
+c) at least two times: <span>\(P(X\geqslant{2})=1 -P(X\leqslant{2})\)</span>
 
 {% highlight r %}
 1 - pbinom(2, 5, 1/6)
@@ -344,7 +344,7 @@ c) at least two times: $$P(X\geqslant{2})=1 -P(X\leqslant{2})$$
 
 **Example6**: if 20% of the bolts produced by a machine are defective, determine the probability that out of 4 bolts chosen at random:
 
-a) 1 defective: $$P(X=1)$$
+a) 1 defective: <span>\(P(X=1)\)</span>
 
 {% highlight r %}
 dbinom(1, 4, 0.2)
@@ -356,7 +356,7 @@ dbinom(1, 4, 0.2)
 ## [1] 0.4096
 {% endhighlight %}
 
-b) 0 defectives $$P(X=0)$$
+b) 0 defectives <span>\(P(X=0)\)</span>
 
 {% highlight r %}
 dbinom(0, 4, 0.2)
@@ -368,7 +368,7 @@ dbinom(0, 4, 0.2)
 ## [1] 0.4096
 {% endhighlight %}
 
-c) Less than 2 defective:  $$P(X < 2 ) = P(X\leqslant{1})$$ 
+c) Less than 2 defective:  <span>\(P(X \lt 2) = P(X\leqslant{1})\)</span>
 
 {% highlight r %}
 pbinom(1, 4, 0.2)
