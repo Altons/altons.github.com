@@ -339,7 +339,7 @@ pbinom(1, 5, 1/6)
 ## [1] 0.8038
 {% endhighlight %}
 
-c) at least two times: <span>\(P(X\geqslant{2})=1 -P(X\leqslant{2})\)</span>
+c) at least two times: <span>\(P(X\geqslant{2})=1 -P(X\lt{2})\)</span>
 
 {% highlight r %}
 1 - pbinom(2, 5, 1/6)
