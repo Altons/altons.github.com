@@ -26,10 +26,10 @@ The distribution of heads and tails in coin tossing is an example of a Bernoulli
 
 ## Binomial probability distribution
 
-Suppose that $n$ independent Bernoulli trials each one having probability of success p are to be performed. Let X be the
+Suppose that n independent Bernoulli trials each one having probability of success p are to be performed. Let X be the
 number of successes among the n trials. 
 
-We say that X follows the binomial probability distribution with parameters $$B(n,p)$$.
+We say that X follows the binomial probability distribution with parameters $$B(n,p)$$
 
 In plain english, the binomial distribution describes the outcome of n independent trials in an experiment. Each trial is assumed to have only two outcomes, either success or failure.
 
@@ -56,10 +56,14 @@ where $$\binom{n}{x}=\frac{n!}{(n-x)!x!}$$
 - Generate Binomial random numbers:
 
 In R we use the function **rbinom(e,n,p)** to generate binomial random numbers.
+
 Parameters:
-  - **e:** number of experiments you want to simulate
-  - **n:** number of independent Bernoulli trials in each experiment
-  - **p:** define the probability of success
+
+  **e:** number of experiments you want to simulate
+
+  **n:** number of independent Bernoulli trials in each experiment
+
+  **p:** define the probability of success
   
 **Example1**: A fair coin is tossed. Let the variable x take values 1 and 0 according to as the toss results in "Head"" or "Tail". Then, X is a Bernoulli variable with parameter p=1/2. Here, X denotes the number of heads obtained in the toss. Probability of success 1/2 and the probability of failure 1/2
 
@@ -80,7 +84,7 @@ rbinom(e, n, p)  ### conduct the random simulation
 {% endhighlight %}
 
 
-**Example2:** Run the above experiment 10 times and calculated the expected number of heads. Well, we don't really need to do the simulation as we already know the **E[X]** for a binomial distribution is np. So the expected number of heads in 10 experiments is:
+**Example2:** Run the above experiment 10 times and calculated the expected number of heads. Well, we don't really need to do the simulation as we already know the **E\[X\]** for a binomial distribution is np. So the expected number of heads in 10 experiments is:
 
 {% highlight r %}
 e = 10  # simulate 10 experiments
@@ -199,11 +203,17 @@ sim[1:3]
 
 
 The interpretation of the above result is:
+
   - In our first experiment we got 13 heads out 20
+
   - In our second experiment we got 9 heads out 20
+
   - In our third experiment we got 9 heads out 20
 
+
+
 - Using probability distribution function pbinom() density function dbinom()
+
 
 Let's illustrate the above functions with an example:
 
