@@ -14,3 +14,7 @@ sidebar .avatar {
 
 code{color:rgba(0, 0, 0, 0.75);padding:1px 3px;}
 
+[alt=center] {
+  display: block;
+  margin: auto;
+}
