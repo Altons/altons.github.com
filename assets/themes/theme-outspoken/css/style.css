@@ -2,7 +2,8 @@ body {
 background: #F8FAF5;
 /*padding-top: 6em;*/
 font-family: 'Exo', sans-serif;
-font-size: 16px;
+font-size: 14px;
+text-align: justify;
 }
 
 .navbar .container { height: 2em; }
