@@ -16,7 +16,7 @@ The following image will give you a better a idea of what I have just explained.
 </pre></div>
 
 
-![Alt text](figs/python/Domino2D.png)
+![Alt text](/figs/python/Domino2D.png)
 
 
 Now, I did not make extra cash playing dominoes (I did sometimes, but that's not the reason of my post) but using dominoes tiles and a bit of probability was my way to make extra cash. Now imaging the following situation: You have gathered some friends and on a table you have all domino tiles facing down and proceed to shuffle them around. Then with the tiles still **facing down** you make an arrangement of 4 rows and 7 columns just like the above image and tell your friends *"I bet you $5 there is at least one double in one of the four corners"*
