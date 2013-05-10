@@ -8,8 +8,10 @@ tags: [octave, matlab, linear algebra, machine learning]
 {% include JB/setup %}
 
 
+
 **Author: Alberto Negron**  
-**Version: 0.1.0**
+**Version: 0.3.0** <br>
+**Last Update: 8<sup>th</sup> May 2013**
 
 
 Management & Help
@@ -51,6 +53,13 @@ array | \[ \] | \[1 2; 3 4\]
 increment | : | 1:10
 variable assignment | = | A=magic(3);
 do not display | ; | a=1;
+
+Workflow
+-
+Task | Command
+---- | -------
+Suspend the execution of the program. | pause; or pause(5)
+print string to the stout | fprintf("Hello World")
 
 Matrices
 -
@@ -159,6 +168,161 @@ with short circuiting | &#124;&#124;
 AND | &
 OR | &#124;
 NOT | ∼ 
+
+
+Defining Functions
+-
+
+###Simplest Form
+
+    function name
+      body
+    end
+
+Example:
+
+    function wakeup
+       printf ("\a");
+     function
+
+### Passing Params
+
+    function name (arg-list)
+       body
+    end
+
+Example:
+
+    function wakeup (message)
+       printf ("\a%s\n", message);
+    end
+    
+    wakeup ("Rise and shine!");
+    
+### Return Single Value
+
+    function ret-var = name (arg-list)
+       body
+    end
+    
+Example:
+
+    function retval = avg (v)
+       retval = sum (v) / length (v);
+    end
+
+### Return Multiple Values
+
+    function [ret-var1,ret-var2,...,ret-varn] = name (arg-list)
+       body
+    end
+    
+Example:
+    
+    function [mu,sigma] = basicStat(X)
+        mu = mean(X);
+        sigma = std(X);
+    end
+    
+Statements
+-
+
+### IF Statement
+
+    if (condition)
+       then-body
+     elseif (condition)
+       elseif-body
+     else
+       else-body
+     endif
+
+Example:
+
+         if (rem (x, 2) == 0)
+       printf ("x is even\n");
+     elseif (rem (x, 3) == 0)
+       printf ("x is odd and divisible by 3\n");
+     else
+       printf ("x is odd\n");
+     endif
+     
+
+     
+> Note that the ***elseif*** keyword must not be spelled ***else if***, as is allowed in Fortran. If it is, the space between the ***else*** and ***if*** will tell Octave to treat this as a new ***if*** statement within another ***if*** statement's ***else*** clause
+
+### SWITCH Statement
+
+    switch (X)
+       case 1
+         do_something ();
+       case 2
+         do_something_else ();
+       otherwise
+         do_something_completely_different ();
+     endswitch
+     
+Example:
+
+     A = 7;
+     switch A
+       case { 6, 7 }
+         printf ("variable is either 6 or 7\n");
+       otherwise
+         printf ("variable is neither 6 nor 7\n");
+     endswitch
+
+One advantage of using the ***switch*** statement compared to using ***if*** statements is that the labels can be strings
+
+    switch (X)
+       case "a string"
+         do_something
+       ...
+     endswitch
+
+###WHILE Statement
+
+    while (condition)
+       body
+     endwhile
+
+Example:
+
+     fib = ones (1, 10);
+     i = 3;
+     while (i <= 10)
+       fib (i) = fib (i-1) + fib (i-2);
+       i++;
+     endwhile
+
+### DO-UNTIL Statement
+
+     do
+       body
+     until (condition)
+
+Example:
+
+     fib = ones (1, 10);
+     i = 2;
+     do
+       i++;
+       fib (i) = fib (i-1) + fib (i-2);
+     until (i == 10)
+
+### FOR Statement
+    
+     for var = expression
+       body
+     endfor
+
+Example:
+
+    fib = ones (1, 10);
+     for i = 3:10
+       fib (i) = fib (i-1) + fib (i-2);
+     endfor
+
 
 ###Other Cheat Sheets
 
