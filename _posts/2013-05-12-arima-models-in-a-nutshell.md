@@ -64,7 +64,7 @@ plot.ts(kingsts)
 acf(kingsts, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/ACF.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/acf.png) 
 
 
 At first glance we could say it is  non-stationary but let's run a unit-root test.
