@@ -9,6 +9,8 @@ safe : true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
+markdown: redcarpet
+
 title : OutSpoken Data
 tagline: Site Tagline
 gravatar_url : 199e34f059d9f042d353e9dbf2dcec69.png
