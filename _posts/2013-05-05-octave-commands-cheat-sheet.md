@@ -7,8 +7,6 @@ tags: [octave, matlab, linear algebra, machine learning]
 ---
 {% include JB/setup %}
 
-Octave Commands Cheat Sheet
-=
 
 **Author: Alberto Negron**  
 **Version: 0.8.0** <br>
