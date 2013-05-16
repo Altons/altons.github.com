@@ -7,6 +7,8 @@ tags: [octave, matlab, linear algebra, machine learning]
 ---
 {% include JB/setup %}
 
+Octave Commands Cheat Sheet
+=
 
 **Author: Alberto Negron**  
 **Version: 0.8.0** <br>
@@ -15,6 +17,7 @@ tags: [octave, matlab, linear algebra, machine learning]
 
 Management & Help
 -
+
 
 Task | Command
 ---- | -------
@@ -238,7 +241,7 @@ Defining Functions
 
 ###Simplest Form
 
-```
+```matlab
   function name
       body
   end
@@ -246,15 +249,15 @@ Defining Functions
 
 Example:
 
-```
+```matlab
   function wakeup
         printf ("\a");
-    endfunction
+    end
 ```
 
 ### Passing Params
 
-```
+```matlab
   function name (arg-list)
         body
     end
@@ -262,7 +265,7 @@ Example:
 
 Example:
 
-```
+```matlab
   function wakeup (message)
         printf ("\a%s\n", message);
     end
@@ -272,7 +275,7 @@ Example:
 
 ### Return Single Value
 
-```
+```matlab
   function ret-var = name (arg-list)
         body
     end
@@ -280,7 +283,7 @@ Example:
     
 Example:
 
-```
+```matlab
   function retval = avg (v)
         retval = sum (v) / length (v);   
     end
@@ -288,7 +291,7 @@ Example:
 
 ### Return Multiple Values
 
-```
+```matlab
   function [ret-var1,ret-var2,…,ret-varn] = name (arg-list)
         body
     end
@@ -296,7 +299,7 @@ Example:
 
 Example:
 
-```
+```matlab
   function [mu,sigma] = basicStat(X)
     mu = mean(X);
     sigma = std(X);
@@ -308,26 +311,26 @@ Statements
 
 ### IF Statement
 
-```
+```matlab
   if (condition)
        then-body
     elseif (condition)
        elseif-body
     else
        else-body
-    endif
+    end
 ```
 
 Example:
 
-```
+```matlab
    if (rem (x, 2) == 0)
        printf ("x is even\n");
      elseif (rem (x, 3) == 0)
        printf ("x is odd and divisible by 3\n");
      else
        printf ("x is odd\n");
-     endif
+     end
 ```     
 
      
@@ -335,7 +338,7 @@ Example:
 
 ### SWITCH Statement
 
-```
+```matlab
     switch (X)
        case 1
          do_something ();
@@ -343,24 +346,24 @@ Example:
          do_something_else ();
        otherwise
          do_something_completely_different ();
-     endswitch
+     end
 ```
      
 Example:
 
-```
+```matlab
      A = 7;
      switch A
        case { 6, 7 }
          printf ("variable is either 6 or 7\n");
        otherwise
          printf ("variable is neither 6 nor 7\n");
-     endswitch
+     end
 ```
 
 One advantage of using the ***switch*** statement compared to using ***if*** statements is that the labels can be strings
 
-```
+```matlab
   switch (X)
        case "a string"
          do_something
@@ -369,26 +372,26 @@ One advantage of using the ***switch*** statement compared to using ***if*** sta
 ```
 ###WHILE Statement
 
-```
+```matlab
   while (condition)
        body
-     endwhile
+     end
 ```
 
 Example:
 
-```
+```matlab
      fib = ones (1, 10);
      i = 3;
      while (i <= 10)
        fib (i) = fib (i-1) + fib (i-2);
        i++;
-     endwhile
+     end
 ```
 
 ### DO-UNTIL Statement
 
-```
+```matlab
      do
        body
      until (condition)
@@ -396,7 +399,7 @@ Example:
 
 Example:
 
-```
+```matlab
      fib = ones (1, 10);
      i = 2;
      do
@@ -407,19 +410,19 @@ Example:
 
 ### FOR Statement
 
-```    
+```matlab    
      for var = expression
        body
-     endfor
+     end
 ```
 
 Example:
 
-```
+```matlab
   fib = ones (1, 10);
      for i = 3:10
        fib (i) = fib (i-1) + fib (i-2);
-     endfor
+     end
 ```
 
 ###Other Cheat Sheets / Documentation
