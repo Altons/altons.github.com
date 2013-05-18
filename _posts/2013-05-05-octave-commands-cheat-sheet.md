@@ -7,21 +7,42 @@ tags: [octave, matlab, linear algebra, machine learning]
 ---
 {% include JB/setup %}
 
+<a id="index"></a>
 
 **Author: Alberto Negron**  
-**Version: 0.8.0** <br>
-**Last Update: 12<sup>th</sup> May 2013**
+**Version: 0.9.0** <br>
+**Last Update: 17<sup>th</sup> May 2013**
 
 
+Index
+-
+1. [Management & Help](#mng)
+2. [Shell Commands](#shell)
+3. [Special Operators](#spc)
+4. [Workflow](#flow)
+5. [Vectors & Matrices](#array)
+6. [Linear Algebra](#algebra)
+7. [Plotting](#plot)
+8. [Math Functions](#math)
+9. [Stats Functions](#stat)
+10. [Constants](#const)
+11. [Logical Operators](#logic)
+12. [Auxiliary Functions](#aux)
+13. [String Functions](#str)
+14. [Import & Export Data](#data)
+15. [Defining Functions](#func)
+16. [Statements](#stmt)
+17. [Other Cheat Sheets](#other)
+
+<a id="mng"></a>
 Management & Help
 -
-
 
 Task | Command
 ---- | -------
 exits software | quit or exit
 list variables | who/whos
-deallocate variable(s) | clear [***varname***]
+deallocate variable(s) | clear ***varname***
 displays search path | path
 Adds path to search | addpath
 clear screen | clc
@@ -35,7 +56,9 @@ Describe packages | pkg describe **pkg_name**
 Load/Unload package | pkg load/unload **pkg_name**
 Uninstall package | pkg uninstall **pkg_name**
 
+[back to index](#index)
 
+<a id="shell"></a>
 Shell Commands
 -
 
@@ -44,11 +67,13 @@ Task | Command
 ---- | -------
 change working directory to dir | cd ***dirname*** 
 print working directory | pwd 
-print directory listing | ls \[***options***\] 
+print directory listing | ls 
 return value of named environment variable | getenv (string) 
 execute arbitrary shell command string | system (cmd) 
 
+[back to index](#index)
 
+<a id="spc"></a>
 Special Operators
 -
 
@@ -62,6 +87,9 @@ ranges | start:step:stop (default step=1) | 1:10 or 1:10:100
 variable assignment | = | A=magic(3);
 do not display | ; | a=1;
 
+[back to index](#index)
+
+<a id="flow"></a>
 Workflow
 -
 Task | Command
@@ -69,6 +97,9 @@ Task | Command
 Suspend the execution of the program. | pause; or pause(5)
 print string to the stout | fprintf("Hello World")
 
+[back to index](#index)
+
+<a id="array"></a>
 Vectors & Matrices
 -
 
@@ -93,8 +124,11 @@ Higher Dimensional Arrays | B(z,y,z)=1
 Sorting arrays | sort(A); or sort(A, 'descend');
 Return true if any element in array is non-zero | any(A)
 Return true if all element are non-zero | all(A)
+Return a vector of indices of a matrix | [i , j] = find(A<0.5)
 
+[back to index](#index)
 
+<a id="arrayop"></a>
 #####Array Operations
 
 Task | Function
@@ -105,7 +139,9 @@ select rows (columns) corresponding to the elements of a range | A(1:2,1); A(1:2
 select all rows (columns) | A(:,1); A(3,:);
 Delete a row/column of a matrix | A(2,:)= \[\] or A(:,5) = \[\]
 
+[back to index](#index)
 
+<a id="algebra"></a>
 Linear Algebra
 -
 
@@ -116,8 +152,10 @@ returns larger dimension |length
 allocates array with 0’s | zeros
 allocates array with 1’s | ones
 transpose array | '
+Compute the determinant of A. | det(A)
 inverse of matrix | inv
 pseudo inverse of matrix | pinv
+Calculate Eigenvalues / Eigenvectors of matrix A | eig(A) or [V,L] = eig(A)
 Identity matrix | eye
 Compute the rank of a Matrix | rank(A)
 returns the lower triangular part of A | tril(A) 
@@ -126,7 +164,9 @@ Create an N-by-N magic square | magic
 Compute the dot product of two vectors | dot(A,B)
 Compute the vector cross product of two 3-dimensional vectors X and Y | cross(X,Y)
 
+[back to index](#index)
 
+<a id="plot"></a>
 Plotting
 -
 
@@ -142,11 +182,16 @@ new graphic objects are added to the plot | hold | hold on;plot(x, b);
 Clear plot and restore default graphics settings | hold | hold off;
 Display a legend for the axes | legend | plot(X,Y);legend('Temperature', 'Gas Demand');
 
+[back to index](#index)
+
+<a id="math"></a>
 Math Functions
 -
 
 Type        | Function    | Examples
 ------------- | ------------- | --------
+Sum of elements along dimension DIM | sum | sum([1 2 3 4])
+Product of elements along dimension DIM | prod | prod([1 2 3 4)]
 Trigonometric    | sin, cos, tan    |floor((1+tan(1.2)) / 1.2)
 Inverse Trigonometric    | asin, acos, atan   |
 Natural Logarithm | log |
@@ -158,8 +203,16 @@ X raised to the Y power | power(X,Y) | power(3,2)
 Real part of complex number | real | real(3+5I)
 Imaginary part of complex number | imag | imag(3+5I)
 Evaluate polynomials | polyval | polyval([2 10.1 0 6],0)
+Write formatted polynomial | polyout | polyout([2 -3 1],"x")
+Return the largest integer not greater than X | floor | floor(1.9)
+Return the smallest integer not less than X |ceil | ceil(3.7)
+Return the integer nearest to X | round | round(1.9)
+Truncate fractional portion of X and return the integer portion| fix | fix(pi)
 
-Statistical Functions
+[back to index](#index)
+
+<a id="stat"></a>
+Stats Functions
 -
 Task | Example  |Function
 ---- | -------- | ------- 
@@ -171,6 +224,9 @@ Poisson distribution | randp | randp(0.5,3,3)
 Min value by column | min | min(A)
 Max value by column | max | max(A)
 
+[back to index](#index)
+
+<a id="const"></a>
 Constants
 -
 
@@ -185,6 +241,9 @@ Not a Number |  NaN
 machine precision | eps
 true/false | logical 1/0
 
+[back to index](#index)
+
+<a id="logic"></a>
 Logical Operators
 -
 
@@ -202,7 +261,9 @@ AND | &
 OR | &#124;
 NOT | ∼ 
 
+[back to index](#index)
 
+<a id="aux"></a>
 Auxiliary Functions
 -
 
@@ -214,15 +275,18 @@ Check a matrix | ismatrix(b)
 **is** func available | is TAB TAB
 Type info | typeinfo(b)
 
+[back to index](#index)
 
+<a id="str"></a>
 String Functions
 -
 Task | Function  | Example
 ---- | -------- | --------
 Compare 2 strings | strcmp | strcmp("hello","Hello")
 
+[back to index](#index)
 
-
+<a id="data"></a>
 Import & Export Data
 -
 Task | Command | Example
@@ -232,8 +296,9 @@ Write data to a text file | dlmwrite (FILE, M, DELIM, R, C) | dlmwrite("out.txt"
 Read the csv files | csvread (FILENAME, DLM_OPTS) | csvread("input.csv");
 Write csv files | csvwrite (FILENAME, X, DLM_OPTS) | csvwrite("output.csv", yhat);
 
+[back to index](#index)
 
-
+<a id="func"></a>
 Defining Functions
 -
 
@@ -303,7 +368,9 @@ Example:
     sigma = std(X);
   end
 ```
+[back to index](#index)
 
+<a id="stmt"></a>
 Statements
 -
 
@@ -422,7 +489,9 @@ Example:
        fib (i) = fib (i-1) + fib (i-2);
      end
 ```
+[back to index](#index)
 
+<a id="other"></a>
 ###Other Cheat Sheets / Documentation
 
 * Octave/Matlab quick Reference <http://academic.macewan.ca/davisj80/files/2012/08/octave_qr.pdf>
