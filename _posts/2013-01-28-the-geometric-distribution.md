@@ -9,8 +9,8 @@ tags: [R, rstats, statistics, probability]
 
 According to Wikipedia the geometric distribution is either of two discrete probability distributions:
 
-- The probability distribution of the number of <span>\(X\)</span> Bernoulli trials needed to get one success, supported on the set <span>\(\{ 1, 2, 3, ...\}\)</span>
-- The probability distribution of the number <span>\(Y = X − 1\)</span> of failures before the first success, supported on the set <span>\(\{ 0, 1, 2, 3, ... \}\)</span>
+- The probability distribution of the number of <span>\\(X\\)</span> Bernoulli trials needed to get one success, supported on the set <span>\\(\{ 1, 2, 3, ...\}\\)</span>
+- The probability distribution of the number <span>\(Y = X − 1\)</span> of failures before the first success, supported on the set <span>\\(\{ 0, 1, 2, 3, ... \}\\)</span>
 
 
 Which of these one calls "the" geometric distribution is a matter of convention and convenience **if** is an old school longhand calculation. However if you are using statistical packages such like SAS, R, SPSS etc you should really know what definition is being used.
@@ -21,7 +21,7 @@ Thus,  the form of geometric distribution for modeling number of failures until 
 
 $$P(Y=k)=(1-p)^{k}p$$
 
-for <span>\(k=0,1,2,3...\)</span>
+for <span>\\(k=0,1,2,3...\\)</span>
 
 
 ![center](/figs/Geometric-Distribution/unnamed-chunk-1.png) 
@@ -30,13 +30,13 @@ for <span>\(k=0,1,2,3...\)</span>
 
 ## Properties
 
-- **Mean:** <span>\(\frac{1-p}{p}\)</span>
-- **Variance:** <span>\(\frac{1-p}{p^2}\)</span>
-- **Standard deviation:** <span>\(\frac{\sqrt{1-p}}{p}\)</span>
-- **Skewness:**  <span>\(\frac{2-p}{\sqrt{1-p}}\)</span>
-- **Kurtosis:**  <span>\(6+\frac{p^2}{1-p}\)</span>
-- **Moment generating function:** <span>\(\frac{p}{1-(1-p)e^t}\)</span>
-- **Characteristic function:** <span>\(\frac{p}{1-(1-p)e^{it}}\)</span>
+- **Mean:** <span>\\(\frac{1-p}{p}\\)</span>
+- **Variance:** <span>\\(\frac{1-p}{p^2}\\)</span>
+- **Standard deviation:** <span>\\(\frac{\sqrt{1-p}}{p}\\)</span>
+- **Skewness:**  <span>\\(\frac{2-p}{\sqrt{1-p}}\\)</span>
+- **Kurtosis:**  <span>\\(6+\frac{p^2}{1-p}\\)</span>
+- **Moment generating function:** <span>\\(\frac{p}{1-(1-p)e^t}\\)</span>
+- **Characteristic function:** <span>\\(\frac{p}{1-(1-p)e^{it}}\\)</span>
 
 ## Geometric Distribution in R
 
@@ -48,7 +48,7 @@ Parameters:
 - **N:** number of geometric(p) counts.
 - **p:** probability of success in each trial
 
-**Example1:** if we roll a fair die, and count the number of rolls before the first **6** appears, we have a geometric distribution with <span>\(p = 1/6\)</span>
+**Example1:** if we roll a fair die, and count the number of rolls before the first **6** appears, we have a geometric distribution with <span>\\(p = 1/6\\)</span>
 
 So in R if roll the die 3 times we have:
 
@@ -90,7 +90,7 @@ dgeom(7, 1/6)
 {% endhighlight %}
 
 
-The probability of getting a 3 on the 8th roll is 0.04651 which is very low. Let's see what is the expected number of rolls before a 3 comes out. For this we'll use the mean of a geometric distribution <span>\(\frac{1-p}{p}\)</span>
+The probability of getting a 3 on the 8th roll is 0.04651 which is very low. Let's see what is the expected number of rolls before a 3 comes out. For this we'll use the mean of a geometric distribution <span>\\(\frac{1-p}{p}\\)</span>
 
 
 {% highlight r %}
@@ -156,7 +156,7 @@ The above probability is the probability of:
 
 or
 
-<span>\(P(X \leqslant 5)=P(X=0)+P(X=1)+P(X=2)+P(X=3)+P(X=4)\)</span>
+<span>\\(P(X \leqslant 5)=P(X=0)+P(X=1)+P(X=2)+P(X=3)+P(X=4)\\)</span>
 
 
 {% highlight r %}
