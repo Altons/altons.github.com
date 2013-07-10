@@ -9,7 +9,7 @@ tags: [rstats,R,tutorial]
 
 Cluster analysis is the art of mathematically split objects into groups or clusters whose members are similar in some way and dissimilar to objects belonging to other groups.
 
-There is a plethora of clustering algorithms available with plenty supporters and detractors of all flavours. I am not going to covered all of them.
+There is a plethora of clustering algorithms available with plenty supporters and detractors of all flavours. I am not going to cover all of them.
 
 This post is about how I normally conduct cluster analyses. The way I use cluster analysis as a previous step for predictive modelling - this mean I create cluster and when new objects are available I try to classify them into groups using multiple techniques.
 
