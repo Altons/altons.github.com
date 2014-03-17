@@ -5,8 +5,9 @@
     <header>  
         <div class="page-header ">
             <h1>Outspoken Data <small>Subtext for header</small></h1>
-                    <ul class="right-navbar">
-                        <li><a href="/">About</a></li>
+                    <ul class="right-navbar nav nav-pills">
+                        <li><a href="/archive.html">Archive</a></li>
+                        <li><a href="/archive.html">About</a></li>
                     </ul>
 
         </div>
@@ -16,6 +17,15 @@
     <div class='container'>
         <div class="row">
             <div class="col-sm-2 col-md-2 col-lg-2 left-bar">
+                  <section class="name">
+                    <a href="/"><img src="http://www.gravatar.com/avatar/{{ site.gravatar_url }}?s=150" height="140" width="140" class="img-circle" /></a>
+                      <div class="fullname">
+                      <a href="/" >
+                        <span id="fname">{{ site.author.name|split:' '|first }}</span>
+                        <span id="lname">{{ site.author.name|split:' '|last }}</span>
+                      </a>
+                      </div>
+                    </section>
                 
             </div> <!-- end left-bar class -->
             <div class="col-sm-8 col-md-8 col-lg-8 main-bar">
