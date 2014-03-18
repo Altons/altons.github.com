@@ -2,13 +2,6 @@
 layout: default
 title: Home
 ---
- 
-<!-- <ul>
-  {% for post in site.posts %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a> 
-  ({{ post.date | date_to_string}})</li>
-  {% endfor %}
-</ul> -->
 
 
 <ul>
@@ -18,26 +11,3 @@ title: Home
     </li>
   {% endfor %}
 </ul>
-<!-- {% for post in site.posts %}
-{% include JB/post_content %}
-{% endfor %} -->
-
-<!-- {% for post in site.posts %}
-    <article class="post">
-
-        <header>
-
-                {% if post.link %}
-                <h3><a href="{{ post.link }}" class="link-post">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a> → </h3>
-              {% else %}
-                <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                {% endif %}
-                <span class="date">{{ post.date | date: "%B %e, %Y" }}</span> – 
-                <a href="{{ post.url }}" class="permalink" title="Permalink">Permalink</a>
-
-        </header>
-
-        {{ post.content }}
-
-    </article>
-{% endfor %} -->
