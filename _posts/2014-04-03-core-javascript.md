@@ -243,6 +243,22 @@ function factorial2(n) {
 	}
 ```
 
+```
+// switch
+
+switch(n) {
+ case 1: 		//Start here if n===1
+ 	// execute code here
+ 	break;
+ case 2:
+ 	// execute code here
+ 	break;
+ default:
+ 	// more code here
+ 	break;
+}
+```
+
 [back to index](#index)
 
 <a id="constructor"></a>
