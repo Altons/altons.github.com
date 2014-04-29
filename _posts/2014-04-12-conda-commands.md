@@ -11,7 +11,7 @@ tags: [Conda, ipython, science]
 CREATE CONDA ENV
 --
 
-```bash
+```
 conda create --quiet --yes -n envName python
 ```
 
@@ -19,45 +19,63 @@ conda create --quiet --yes -n envName python
 DELETE CONDA ENV
 --
 
-```bash
+```
 conda env --remove -n envName
 ```
 
 INSTALL PACKAGE FROM ANACONDA REPO
 --
 
-```bash
+```
 conda install pkgName=ver
 ```
 
 INSTALL PACKAGE FROM PYTHON REPO
 --
-```bash
+```
 conda pip install pkgName
 ```
 
 ACTIVATE CONDA ENVIRONMENT
 --
-```bash
+```
 source activate <env name>
 ```
-
 DEACTIVATE CONDA ENVIRONMENT
 -
-
-```bash
+```
 source deactivate
 ```
 
 LIST CONDA ENVIRONMENT
 -
-```bash
+```
 conda info -e
 ```
 
 LIST AVAILABLE PACKAGE IN ENV
 -
 
-```bash
+```
 conda list -c
 ```
+
+UPDATE ANACONDA
+-
+
+
+You can update your entire Anaconda distribution with:
+
+```
+conda update conda
+conda update anaconda
+```
+
+This will update openssl to the latest version (1.0.1g) in your current active environment.
+
+If you'd like to only update a single environment, use:
+
+```
+conda update -n ENVIRONMENT_NAME openssl
+```
+
