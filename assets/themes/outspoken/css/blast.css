@@ -14,6 +14,21 @@
 }
 
 
+section.blogs > p {
+font-size: 0.8em;
+text-align: center;
+}
+
+section.blogs {
+padding-bottom: 1em;
+}
+
+section.blogs > ul > li {
+font-size: 0.7em;
+text-align: -webkit-left;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Oswald", Arial, sans-serif;
