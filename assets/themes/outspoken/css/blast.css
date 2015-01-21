@@ -3,13 +3,13 @@
 
 @font-face {
     font-family: Channel;
-    src: url(/assets/themes/blast/css/channel/Channel.ttf);
+    src: url(/assets/themes/outspoken/css/channel/Channel.ttf);
     font-weight:400;
 }
 
 @font-face {
     font-family: AquilineTwo;
-    src: url(/assets/themes/blast/css/Aquiline-two/AquilineTwo.ttf);
+    src: url(/assets/themes/outspoken/css/Aquiline-two/AquilineTwo.ttf);
     font-weight:200;
 }
 
@@ -33,13 +33,17 @@ h1, h2, h3, h4, h5, h6 {
     color: black;
 }
 
+.nav>li>a:hover {
+background: none;
+}
+
 
 a {
     color: #DB4850;
 }
 
 a:hover {
-    color:#abd9e9;
+    color: #053FBB;
 }
 
 
@@ -119,7 +123,7 @@ footer {
     .head-image {
         background-color: #2B2B2B;
         background-size: cover;
-        background-image: url(/assets/themes/blast/img/castle-medium.jpg);
+        background-image: url(/assets/themes/outspoken/img/castle-medium.jpg);
         width: 100%;
         background-repeat:no-repeat; 
         background-position:center center;
@@ -162,7 +166,7 @@ footer {
         .head-image {
         background-color: #2B2B2B;
         background-size: cover;
-        background-image: url(/assets/themes/blast/img/castle-large.jpg);
+        background-image: url(/assets/themes/outspoken/img/castle-large.jpg);
         width: 100%;
         background-repeat:no-repeat; 
         /*background-position:center center;*/
