@@ -19,9 +19,9 @@ Which of these one calls "the" geometric distribution is a matter of convention 
 
 Thus,  the form of geometric distribution for modeling number of failures until the first success:
 
-$$P(Y=k)=(1-p)^{k}p$$
+$P(Y=k)=(1-p)^{k}p$
 
-for <span>\\(k=0,1,2,3...\\)</span>
+for <span>`\\(k=0,1,2,3...\\)`</span>
 
 
 ![center](/figs/Geometric-Distribution/unnamed-chunk-1.png) 

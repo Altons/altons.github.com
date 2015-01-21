@@ -13,6 +13,11 @@
     font-weight:200;
 }
 
+code.has-jax {font: inherit;
+              font-size: 100%;
+              background: inherit;
+              border: inherit;
+              color: #515151;}
 
 section.blogs > p {
 font-size: 0.8em;
