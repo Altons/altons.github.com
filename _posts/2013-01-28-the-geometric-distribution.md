@@ -21,7 +21,7 @@ Thus,  the form of geometric distribution for modeling number of failures until 
 
 $P(Y=k)=(1-p)^{k}p$
 
-for <span>`\\(k=0,1,2,3...\\)`</span>
+for <span>\\(k=0,1,2,3...\\)</span>
 
 
 ![center](/figs/Geometric-Distribution/unnamed-chunk-1.png) 
@@ -67,9 +67,9 @@ rgeom(3, 1/6)
 
 The above result means:
 
-- We had 2 failures before the first 6 appeared.
-- We had 1 failure before the first 6 appeared.
-- We had 13 failures before the first 6 appeared.
+- We had 3 failures before the first 6 appeared.
+- We had 2 failure before the first 6 appeared.
+- We had 14 failures before the first 6 appeared.
 
 ### Probability distribution function dgeom() density function pgeom()
 
