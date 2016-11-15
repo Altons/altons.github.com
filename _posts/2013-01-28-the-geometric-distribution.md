@@ -2,7 +2,7 @@
 layout: post
 title: "The Geometric Distribution"
 description: ""
-category: R
+category: rstats
 tags: [R, rstats, statistics, probability]
 ---
 {% include JB/setup %}
@@ -24,7 +24,7 @@ $P(Y=k)=(1-p)^{k}p$
 for <span>\\(k=0,1,2,3...\\)</span>
 
 
-![center](/figs/Geometric-Distribution/unnamed-chunk-1.png) 
+![center](/figs/Geometric-Distribution/unnamed-chunk-1.png)
 
 
 
@@ -200,7 +200,3 @@ pgeom(4, 0.28)
 {% highlight text %}
 ## [1] 0.8065
 {% endhighlight %}
-
-
-
-

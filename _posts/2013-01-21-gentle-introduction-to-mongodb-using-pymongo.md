@@ -6,6 +6,9 @@ category: python
 tags: [Ipython, python, MongoDB, Pymongo, twitter, noSQL]
 ---
 {% include JB/setup %}
+
+>Warning: This is a very old post so comments may not be valid anymore
+
 I use [mongoDB](http://www.mongodb.org/) along with [Pymongo](http://api.mongodb.org/python/current/) for personal projects only (I hope this changes in the near future though) and not very often to be honest. So this post is more of a quick reference for myself and I hope you guys finds it useful too. I am also writing this post in [Ipython](http://ipython.org/) which I will convert to [markdown](http://en.wikipedia.org/wiki/Markdown) using [nbconvert utility](http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html) and then push it to my github blog using [Jekyll](http://jekyllbootstrap.com/). Fingers crossed it won't be too difficult.
 
 For this tutorial I'll be using real data from Twitter using the [Tweepy](https://github.com/tweepy/tweepy) package.
@@ -22,7 +25,7 @@ Done - let's start!
 
 - Head to the MongoDB download page [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads) and get version 2.2.2 (or latest stable version) for your OS (*by the way I'm using OSX for this tutorial so \*nix guys should have no difficulty following along but Windows users may need to change some bits - sorry!*).
 
-- Unzip mongodb-osx-x86_64-2.2.2.tgz and rename folder mongodb-osx-x86_64-2.2.2 to simply mongodb. I normally move this folder to my personal project folder so feel free to move it in wherever you like. Your mongodb folder should have the following structure: 
+- Unzip mongodb-osx-x86_64-2.2.2.tgz and rename folder mongodb-osx-x86_64-2.2.2 to simply mongodb. I normally move this folder to my personal project folder so feel free to move it in wherever you like. Your mongodb folder should have the following structure:
 
 {% highlight bash %}
 
@@ -53,7 +56,7 @@ For more comprehensive documentation, see
 	http://docs.mongodb.org/
 Questions? Try the support group
 	http://groups.google.com/group/mongodb-user
-> 
+>
 {% endhighlight %}
 
 then you are good to go! Type **exit** to quit and go to the previous terminal windows and hit Ctrl+C to kill the server  - we need a bit of customization first.
@@ -78,7 +81,7 @@ logpath = /Users/altons/projects/data/mongodb/log/mongodb.log       # location w
 logappend = true                                                    # everytime I fire up mongodb the new log will be appended to a master log file
 rest=true                                                           # this option let you check server status at http:\\127.0.0.1:27017
 directoryperdb = true                                               # Set to true to modify the storage pattern of the data directory to store each database’s
-                                                                    # files in a distinct folder. This option will create directories within the dbpath 
+                                                                    # files in a distinct folder. This option will create directories within the dbpath
                                                                     # named for each directory
 
 {% endhighlight %}
@@ -110,7 +113,7 @@ In Pymongo 2.4.1 the Connection() method has been deprecated. Now we most use Mo
     <span class="n">conn</span><span class="o">=</span><span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">()</span>
     <span class="k">print</span> <span class="s">&quot;Connected successfully!!!&quot;</span>
 <span class="k">except</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ConnectionFailure</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-   <span class="k">print</span> <span class="s">&quot;Could not connect to MongoDB: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span> 
+   <span class="k">print</span> <span class="s">&quot;Could not connect to MongoDB: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span>
 <span class="n">conn</span>
 </pre></div>
 
@@ -195,7 +198,7 @@ However one must be careful when trying to get existing collections. For example
 
 MongoDB stores structured data as JSON-like documents, using dynamic schemas (called BSON), rather than predefined schemas. An element of data is called a document, and documents are stored in collections. One collection may have any number of documents.
 
-Compared to relational databases, we could say collections are like tables, and documents are like records. But there is one big difference: every record in a table has the same fields (with, usually, differing values) in the same order, while each document in a collection can have completely different fields from the other documents. 
+Compared to relational databases, we could say collections are like tables, and documents are like records. But there is one big difference: every record in a table has the same fields (with, usually, differing values) in the same order, while each document in a collection can have completely different fields from the other documents.
 
 All you really need to know when you're using Python, however, is that documents are Python dictionaries that can have strings as keys and can contain various primitive types (int, float,unicode, datetime) as well as other documents (Python dicts) and arrays (Python lists).
 
@@ -361,7 +364,7 @@ There is a lot of information that we really don't need. Let's keep only the dat
     <span class="n">data</span><span class="p">[</span><span class="s">&#39;to_user_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">to_user_name</span>
     <span class="c"># Insert process</span>
     <span class="n">posts</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    
+
 </pre></div>
 
 
@@ -370,7 +373,7 @@ Dead easy! we have created our collection of tweets, no need to define table and
 
 Here it is the structure of the last document inserted:
 
-<div class="highlight"><pre><span class="n">data</span> 
+<div class="highlight"><pre><span class="n">data</span>
 </pre></div>
 
 
@@ -427,7 +430,7 @@ The first and foremost important operation we need to learn is how to retrieve o
 </pre>
 
 
-- To get more than a single document as the result of a query we use the find() method. find() returns a Cursor instance, which allows us to iterate over all matching documents. 
+- To get more than a single document as the result of a query we use the find() method. find() returns a Cursor instance, which allows us to iterate over all matching documents.
 
 posts.find()
 
@@ -435,7 +438,7 @@ For example, we can iterate over the first 2 documents (there are a lot in the c
 
 <div class="highlight"><pre><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">posts</span><span class="o">.</span><span class="n">find</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]:</span>
     <span class="k">print</span> <span class="n">d</span>
-    
+
 </pre></div>
 
 
@@ -882,7 +885,7 @@ Here we have a good opportunity to see **exists** in action (it should return on
 </pre>
 
 
-### Update Operator: push 
+### Update Operator: push
 
 The **push** operator appends a specified value to an array.Be aware of the following behaviors:
 
@@ -1247,8 +1250,8 @@ To get collection statistics use the collstats command:
 - [Aggregation Framework](http://docs.mongodb.org/manual/reference/aggregation/) (Still chinese to me).
 - [Map Reduce](http://docs.mongodb.org/manual/applications/map-reduce/)
 - [GridFS](http://docs.mongodb.org/manual/applications/gridfs/)
-- [Journaling](http://docs.mongodb.org/manual/administration/journaling/) 
+- [Journaling](http://docs.mongodb.org/manual/administration/journaling/)
 
-I hope you find this tutorial useful. I'll be using it as my online cheat sheet! 
+I hope you find this tutorial useful. I'll be using it as my online cheat sheet!
 
 You can find this post in ipynb, py and md format [here](https://github.com/Altons/pymongo-tutorial)

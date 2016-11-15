@@ -2,7 +2,7 @@
 layout: post
 title: "An easy way of installing RpostgreSQL on Mac"
 description: ""
-category: r
+category: rstats
 tags: []
 ---
 {% include JB/setup %}
@@ -17,7 +17,7 @@ So I did
 
 ```r
 library(dplyr)
-db = src_postgres(dbname = 'xxxxxxxx', 
+db = src_postgres(dbname = 'xxxxxxxx',
              host = 'ec2-54-83-201-96.compute-1.amazonaws.com',
               port = 5432,
               user = 'xxxxxxx',
@@ -105,7 +105,7 @@ devtools::install('/path/to/rpostgresql-read-only/RPostgreSQL')
  ```r
  library(RPostgreSQL)
 Warning message:
-package ‘DBI’ was built under R version 3.1.2 
+package ‘DBI’ was built under R version 3.1.2
 ```
 
 
@@ -131,11 +131,3 @@ loaded via a namespace (and not attached):
 
 
 Enjoy!!
-
-
-
-
-
-
-
-

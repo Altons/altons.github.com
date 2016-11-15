@@ -2,7 +2,7 @@
 layout: post
 title: "The Binomial Distribution"
 description: ""
-category: R
+category: rstats
 tags: [R, rstats, statistics, probability]
 ---
 {% include JB/setup %}
@@ -27,7 +27,7 @@ The distribution of heads and tails in coin tossing is an example of a Bernoulli
 ## Binomial probability distribution
 
 Suppose that n independent Bernoulli trials each one having probability of success p are to be performed. Let X be the
-number of successes among the n trials. 
+number of successes among the n trials.
 
 We say that X follows the binomial probability distribution with parameters $$B(n,p)$$
 
@@ -64,7 +64,7 @@ Parameters:
   **n:** number of independent Bernoulli trials in each experiment
 
   **p:** define the probability of success
-  
+
 **Example1**: A fair coin is tossed. Let the variable x take values 1 and 0 according to as the toss results in "Head"" or "Tail". Then, X is a Bernoulli variable with parameter p=1/2. Here, X denotes the number of heads obtained in the toss. Probability of success 1/2 and the probability of failure 1/2
 
 
@@ -238,7 +238,7 @@ freq.table
 
 {% highlight text %}
 ## result
-##     0     1     2     3     4     5     6 
+##     0     1     2     3     4     5     6
 ##  1545  9444 23461 31168 23431  9377  1574
 {% endhighlight %}
 
@@ -255,7 +255,7 @@ t
 
 {% highlight text %}
 ## result
-##       0       1       2       3       4       5       6 
+##       0       1       2       3       4       5       6
 ## 0.01545 0.09444 0.23461 0.31168 0.23431 0.09377 0.01574
 {% endhighlight %}
 
@@ -282,7 +282,7 @@ dbinom(2, 6, 0.5)
 {% endhighlight %}
 
 
-Alternatively, we can use the cumulative probability function for binomial distribution pbinom() 
+Alternatively, we can use the cumulative probability function for binomial distribution pbinom()
 
 {% highlight r %}
 # This is the probability of P(X=0)+P(X=1)+P(X=2)
@@ -389,7 +389,3 @@ pbinom(1, 4, 0.2)
 {% highlight text %}
 ## [1] 0.8192
 {% endhighlight %}
-
-
-
-

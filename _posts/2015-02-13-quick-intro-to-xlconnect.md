@@ -2,7 +2,7 @@
 layout: post
 title: "Quick Intro to XLConnect"
 description: ""
-category: r
+category: rstats
 tags: []
 ---
 {% include JB/setup %}
@@ -219,7 +219,7 @@ summary(iris)
 
 
 {% highlight text %}
-##   Sepal.Length   Sepal.Width    Petal.Length   Petal.Width 
+##   Sepal.Length   Sepal.Width    Petal.Length   Petal.Width
 ##  Min.   :4.30   Min.   :2.00   Min.   :1.00   Min.   :0.1  
 ##  1st Qu.:5.10   1st Qu.:2.80   1st Qu.:1.60   1st Qu.:0.3  
 ##  Median :5.80   Median :3.00   Median :4.35   Median :1.3  
@@ -232,7 +232,7 @@ summary(iris)
 ##  Mode  :character  
 ##                    
 ##                    
-## 
+##
 {% endhighlight %}
 
 [back to index](#index)
@@ -322,7 +322,7 @@ writeNamedRegion(invoice_wb, inv_company, name = "bill_company", header=F)
 createName(invoice_wb, name = "items", formula = "invoice!$A$16", overwrite = TRUE)
 writeNamedRegion(invoice_wb, items, name = "items", header=F)
 
-### Since we have a lot of calculation inside the invoice template we need to force the 
+### Since we have a lot of calculation inside the invoice template we need to force the
 ### calculation after data has been inserted/updated
 setForceFormulaRecalculation(invoice_wb, sheet = 1, TRUE)
 ###Save our template to a different file
@@ -353,17 +353,17 @@ sessionInfo()
 {% highlight text %}
 ## R version 3.1.1 (2014-07-10)
 ## Platform: x86_64-apple-darwin13.1.0 (64-bit)
-## 
+##
 ## locale:
 ## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
-## 
+##
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
+##
 ## other attached packages:
 ## [1] XLConnect_0.2-9     XLConnectJars_0.2-9 knitr_1.6          
-## 
+##
 ## loaded via a namespace (and not attached):
-## [1] evaluate_0.5.5 formatR_0.10   rJava_0.9-6    stringr_0.6.2 
+## [1] evaluate_0.5.5 formatR_0.10   rJava_0.9-6    stringr_0.6.2
 ## [5] tools_3.1.1
 {% endhighlight %}

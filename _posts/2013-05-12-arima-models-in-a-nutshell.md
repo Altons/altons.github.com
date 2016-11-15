@@ -2,7 +2,7 @@
 layout: post
 title: "ARIMA models in a Nutshell"
 description: ""
-category: R
+category: rstats
 tags: [R, time-series, statistics]
 ---
 {% include JB/setup %}
@@ -33,9 +33,9 @@ kingsts
 
 {% highlight text %}
 ## Time Series:
-## Start = 1 
-## End = 42 
-## Frequency = 1 
+## Start = 1
+## End = 42
+## Frequency = 1
 ##  [1] 60 43 67 50 56 42 50 65 68 43 65 34 47 34 49 41 13 35 53 56 16 43 69
 ## [24] 59 48 59 86 55 68 51 33 49 67 77 81 67 71 81 68 70 77 56
 {% endhighlight %}
@@ -51,7 +51,7 @@ Once data is in the right format then we start our analysis.
 plot.ts(kingsts)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/tsPlot.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/tsPlot.png)
 
 
 
@@ -64,7 +64,7 @@ plot.ts(kingsts)
 acf(kingsts, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/acf.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/acf.png)
 
 
 At first glance we could say it is  non-stationary but let's run a unit-root test.
@@ -80,9 +80,9 @@ library(tseries)
 
 {% highlight text %}
 ## 'tseries' version: 0.10-30
-## 
+##
 ## 'tseries' is a package for time series analysis and computational finance.
-## 
+##
 ## See 'library(help="tseries")' for details.
 {% endhighlight %}
 
@@ -95,10 +95,10 @@ kpss.test(kingsts)
 
 
 {% highlight text %}
-## 
+##
 ##  KPSS Test for Level Stationarity
-## 
-## data:  kingsts 
+##
+## data:  kingsts
 ## KPSS Level = 0.6906, Truncation lag parameter = 1, p-value =
 ## 0.0144
 {% endhighlight %}
@@ -116,13 +116,13 @@ kings1diff = diff(kingsts, differences = 1)
 plot.ts(kings1diff)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/firstDiff1.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/firstDiff1.png)
 
 {% highlight r %}
 acf(kings1diff, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/firstDiff2.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/firstDiff2.png)
 
 {% highlight r %}
 kpss.test(kings1diff)
@@ -137,10 +137,10 @@ kpss.test(kings1diff)
 
 
 {% highlight text %}
-## 
+##
 ##  KPSS Test for Level Stationarity
-## 
-## data:  kings1diff 
+##
+## data:  kings1diff
 ## KPSS Level = 0.0347, Truncation lag parameter = 1, p-value = 0.1
 {% endhighlight %}
 
@@ -159,10 +159,10 @@ Box.test(kings1diff, lag = 20, type = "Ljung-Box")
 
 
 {% highlight text %}
-## 
+##
 ##  Box-Ljung test
-## 
-## data:  kings1diff 
+##
+## data:  kings1diff
 ## X-squared = 25.1, df = 20, p-value = 0.1975
 {% endhighlight %}
 
@@ -197,7 +197,7 @@ The **p** in ARIMA(p,d,q) measures the order of the autoregressive component. To
 pacf(kings1diff, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/pacf.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/pacf.png)
 
 
 The above PACF plot suggests an AR(2) or AR(3) could be adecuated in this case.
@@ -209,7 +209,7 @@ The **q** measures the order of the moving average component.  To get an idea of
 acf(kings1diff, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/acf.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/acf.png)
 
 
 The ACF suggests a MA(1) as only lag 1 exceeds the significance bounds.
@@ -231,15 +231,15 @@ arima(kingsts, order = c(3, 1, 0))  # ARIMA(3,1,0)
 
 
 {% highlight text %}
-## 
+##
 ## Call:
 ## arima(x = kingsts, order = c(3, 1, 0))
-## 
+##
 ## Coefficients:
 ##          ar1     ar2     ar3
 ##       -0.606  -0.490  -0.328
 ## s.e.   0.149   0.155   0.148
-## 
+##
 ## sigma^2 estimated as 222:  log likelihood = -169.3,  aic = 346.6
 {% endhighlight %}
 
@@ -252,15 +252,15 @@ arima(kingsts, order = c(0, 1, 1))  # ARIMA(0,1,1)
 
 
 {% highlight text %}
-## 
+##
 ## Call:
 ## arima(x = kingsts, order = c(0, 1, 1))
-## 
+##
 ## Coefficients:
 ##          ma1
 ##       -0.722
 ## s.e.   0.121
-## 
+##
 ## sigma^2 estimated as 230:  log likelihood = -170.1,  aic = 344.1
 {% endhighlight %}
 
@@ -273,15 +273,15 @@ arima(kingsts, order = c(3, 1, 1))  # ARIMA(3,1,1)
 
 
 {% highlight text %}
-## 
+##
 ## Call:
 ## arima(x = kingsts, order = c(3, 1, 1))
-## 
+##
 ## Coefficients:
 ##          ar1     ar2     ar3     ma1
 ##       -0.581  -0.478  -0.320  -0.029
 ## s.e.   0.465   0.267   0.214   0.499
-## 
+##
 ## sigma^2 estimated as 222:  log likelihood = -169.3,  aic = 348.6
 {% endhighlight %}
 
@@ -290,7 +290,7 @@ Results are:
 
 Model | AIC
 ----- | ----
-ARIMA(3,1,0) | 346.1 
+ARIMA(3,1,0) | 346.1
 ARIMA(0,1,1) | **344.1**
 ARIMA(3,1,1) | 348.6
 
@@ -299,9 +299,9 @@ In this case ARIMA(0,1,1) seems a good candidate for our **Age of Death of Succe
 Forecasting
 =
 
-> Note: This part of the post is literally a copy & paste from Avril Coghlan's online book (with minor changes) I mentioned at the begining of this post. 
+> Note: This part of the post is literally a copy & paste from Avril Coghlan's online book (with minor changes) I mentioned at the begining of this post.
 
-Let's use our ARIMA(0,1,1) to make forecasts for future values using the **forecast.Arima()** function in the “forecast” R package. 
+Let's use our ARIMA(0,1,1) to make forecasts for future values using the **forecast.Arima()** function in the “forecast” R package.
 
 
 
@@ -340,7 +340,7 @@ kingForecast
 plot.forecast(kingForecast)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/forecast.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/forecast.png)
 
 
 The ARIMA model gives the forecasted age at death of the next five kings as 67.8 years.
@@ -352,7 +352,7 @@ It is a good idea to investigate whether the forecast errors of an ARIMA model a
 acf(kingForecast$residuals, lag.max = 20)
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/resd.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/resd.png)
 
 {% highlight r %}
 Box.test(kingForecast$residuals, lag = 20, type = "Ljung-Box")
@@ -361,10 +361,10 @@ Box.test(kingForecast$residuals, lag = 20, type = "Ljung-Box")
 
 
 {% highlight text %}
-## 
+##
 ##  Box-Ljung test
-## 
-## data:  kingForecast$residuals 
+##
+## data:  kingForecast$residuals
 ## X-squared = 13.58, df = 20, p-value = 0.8509
 {% endhighlight %}
 
@@ -409,12 +409,10 @@ plotForecastErrors <- function(forecasterrors) {
 plot.ts(kingForecast$residuals)  # make time plot of forecast errors
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/ferrs1.png) 
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/ferrs1.png)
 
 {% highlight r %}
 plotForecastErrors(kingForecast$residuals)  # make a histogram
 {% endhighlight %}
 
-![center](/figs/2013-05-12-arima-models-in-a-nutshell/ferrs2.png) 
-
-
+![center](/figs/2013-05-12-arima-models-in-a-nutshell/ferrs2.png)

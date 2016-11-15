@@ -7,12 +7,13 @@ tags: [python, ipyton, virtualenv, EPD, OSX, Linux]
 ---
 {% include JB/setup %}
 
+>Warning: This is a very old post so comments may not be valid anymore
 
 I have recently created a virtualenv based on the Enthought Python Distribution for some startup ideas I'd like to develop futher. Until now I've been using the standard virtualenv python executable from within Sublime Text 2 with not issues at all until yesterday when I was using Ipython and could not load a package I've using the whole week.
 
 By default Ipython is not virtualenv aware and I thought that I will have to go through tears of pain to make ipython understand virtualenvs. - luckily I've found this [post](http://blog.ufsoft.org/2009/1/29/ipython-and-virtualenv) with a clear and simple explanation.
 
-Furthermore, If you have Ipython 0.12.1 (*not sure if earlier versions support this*) then is even easier! All you need to do is to save the following piece of code in ``~/.ipython/profile_default/startup/``. 
+Furthermore, If you have Ipython 0.12.1 (*not sure if earlier versions support this*) then is even easier! All you need to do is to save the following piece of code in ``~/.ipython/profile_default/startup/``.
 
 {% highlight python %}
 
@@ -29,7 +30,7 @@ if 'VIRTUAL_ENV' in environ:
     site.addsitedir(virtual_env)
     print 'VIRTUAL_ENV ->', virtual_env
     del virtual_env
-del site, environ, join, version_info 
+del site, environ, join, version_info
 
 {% endhighlight %}
 
@@ -47,14 +48,14 @@ with a prefix, e.g.
     50-middle.py
     99-last.ipy  
 
-I have saved mine as ``00-virtualenv.py`` and now Ipython is able to look at my virtualenv packages: 
+I have saved mine as ``00-virtualenv.py`` and now Ipython is able to look at my virtualenv packages:
 
 {% highlight python %}
 (epd)bash:~/projects/geo$ ipython
 Enthought Python Distribution (free version) -- www.enthought.com
 (type 'upgrade' or see www.enthought.com/epd/upgrade to get the full EPD)
 
-Python 2.7.3 |EPD_free 7.3-2 (32-bit)| (default, Apr 12 2012, 11:28:34) 
+Python 2.7.3 |EPD_free 7.3-2 (32-bit)| (default, Apr 12 2012, 11:28:34)
 Type "copyright", "credits" or "license" for more information.
 
 IPython 0.12.1 -- An enhanced Interactive Python.

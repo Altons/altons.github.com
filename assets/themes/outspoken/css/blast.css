@@ -13,6 +13,8 @@
     font-weight:200;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light')
+
 /*code.has-jax {font: inherit;
               font-size: 100%;
               background: inherit;
@@ -52,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header_quote {
-    font-family: AquilineTwo, Helvetica, Arial, sans-serif;
+    font-family: 'Shadows Into Light', cursive;
     font-size: 18px;
     color: black;
 }
@@ -121,4 +123,3 @@ footer {
 
 
 }
-

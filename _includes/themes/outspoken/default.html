@@ -2,18 +2,19 @@
 <html>
  {% include head.html %}
 <body>
-    <header>  
+    <header>
         <div class="page-header ">
             <h1 >Outspoken <span class='blog_name'>DATA</span> <small class="header_quote">"In God we trust. All others must bring data." Edward Deming</small></h1>
                     <ul class="right-navbar nav nav-pills">
                         <li><a href="/">Home</a></li>
+                        <li><a href="/archive.html">Archive</a></li>
                         <li><a href="/categories.html">Categories</a></li>
                         <li><a href="/about.html">About</a></li>
                     </ul>
 
         </div>
        <div class="head-image head-size rounded-corners img-responsive">
-       </div> 
+       </div>
     </header>
     <div class='container'>
         <div class="row">
@@ -34,10 +35,10 @@
                       <a href="/atom.xml"><img src="{{ ASSET_PATH }}/img/rss.png" /></a>
 
                 </section>
-                
+
             </div> <!-- end left-bar class -->
             <div class="col-sm-8 col-md-8 col-lg-8 main-bar">
-                {{ content }}    
+                {{ content }}
             </div> <!-- end main-bar class -->
             <div class="col-sm-2 col-md-2 col-lg-2 right-bar">
               <section class="blogs">
@@ -48,15 +49,16 @@
                   <li><a href="http://www.ikeahackers.net/" target="_blank">IKEA hackers</a></li>
                   <li><a href="http://www.johndcook.com/blog/" target="_blank">John D. Cook</a></li>
                   <li><a href="http://blogs.sas.com/content/sasdummy/" target="_blank">The SAS Dummy</a></li>
-                  
-                  
-                  
+
+
+
                 </ul>
               </section>
                 <section>
                     <a  href="http://www.foastat.org/index.html" target="_blank"><img class='img-responsive' src="{{ ASSET_PATH }}/img/foas.png" /></a>
                 </section>
                 <section class=" tag_box">
+                  <p>I have wrote about...</p>
                 <ul>
                     {% assign categories_list = site.categories %}
                     {% include JB/categories_list %}
@@ -67,11 +69,11 @@
         </div> <!-- end row class -->
     </div> <!-- end container class -->
     <footer>
-          <p>&copy; {{ site.author.name }} 2012 - 2015
+          <p>&copy; {{ site.author.name }} 2012 - 2017
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll </a>
           and <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
         </p>
-        
+
     </footer>
       <script>
   (function(d, s) {
@@ -89,7 +91,7 @@
 /*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
-  
+
   {% include JB/analytics %}
 </body>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

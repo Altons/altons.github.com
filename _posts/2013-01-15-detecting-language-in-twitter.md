@@ -2,7 +2,7 @@
 layout: post
 title: "Detecting Language in Twitter"
 description: ""
-category: R
+category: rstats
 tags: [R, rstats, twitter, NLP]
 ---
 {% include JB/setup %}
@@ -29,8 +29,8 @@ So here it is my list with supported languages:
 
 
 {% highlight r %}
-langList <- list("danish", "dutch", "english", "finnish", "french", "german", 
-    "hungarian", "italian", "norwegian", "portuguese", "russian", "spanish", 
+langList <- list("danish", "dutch", "english", "finnish", "french", "german",
+    "hungarian", "italian", "norwegian", "portuguese", "russian", "spanish",
     "swedish")
 {% endhighlight %}
 
@@ -80,7 +80,7 @@ langStopwords[["german"]][c(1:10)]
 
 
 {% highlight text %}
-##  [1] "aber"  "alle"  "allem" "allen" "aller" "alles" "als"   "also" 
+##  [1] "aber"  "alle"  "allem" "allen" "aller" "alles" "als"   "also"
 ##  [9] "am"    "an"
 {% endhighlight %}
 
@@ -97,18 +97,18 @@ for (lang in langList) {
 
 
 {% highlight text %}
-## 145 - danish 
-## 106 - dutch 
-## 488 - english 
-## 235 - finnish 
-## 236 - french 
-## 264 - german 
-## 207 - hungarian 
-## 361 - italian 
-## 228 - norwegian 
-## 295 - portuguese 
-## 159 - russian 
-## 428 - spanish 
+## 145 - danish
+## 106 - dutch
+## 488 - english
+## 235 - finnish
+## 236 - french
+## 264 - german
+## 207 - hungarian
+## 361 - italian
+## 228 - norwegian
+## 295 - portuguese
+## 159 - russian
+## 428 - spanish
 ## 114 - swedish
 {% endhighlight %}
 
@@ -123,10 +123,10 @@ langScore <- function(post) {
     lowerList <- lapply(toList, tolower)
     for (word in lowerList) {
         for (lang in names(langStopwords)) {
-            results[[lang]] <- is.element(word, strsplit(langStopwords[[lang]], 
+            results[[lang]] <- is.element(word, strsplit(langStopwords[[lang]],
                 " "))
         }
-        
+
     }
     scores <- as.vector(lapply(results, sum))
     # In case language is not supported or anything else like links or
@@ -210,8 +210,8 @@ table(tweets$lang)
 
 
 {% highlight text %}
-## 
-## english  french  german spanish 
+##
+## english  french  german spanish
 ##      10      10      10      10
 {% endhighlight %}
 
@@ -256,7 +256,7 @@ for (i in 1:nrow(tweets)) {
         temp <- as.data.frame(cbind(post = post, label = label, prediction = prediction))
         test <- rbind(test, temp)
         rm(temp)
-        
+
     }
 }
 {% endhighlight %}
@@ -297,22 +297,21 @@ sessionInfo()
 {% highlight text %}
 ## R version 2.15.2 (2012-10-26)
 ## Platform: x86_64-apple-darwin9.8.0/x86_64 (64-bit)
-## 
+##
 ## locale:
 ## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
-## 
+##
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
+##
 ## other attached packages:
 ##  [1] e1071_1.6-1     class_7.3-5     caret_5.15-048  foreach_1.4.0  
 ##  [5] cluster_1.14.3  reshape2_1.2.1  lattice_0.20-10 plyr_1.7.1     
-##  [9] twitteR_0.99.19 rjson_0.2.11    RCurl_1.95-3    bitops_1.0-4.2 
+##  [9] twitteR_0.99.19 rjson_0.2.11    RCurl_1.95-3    bitops_1.0-4.2
 ## [13] tm_0.5-8.1      knitr_0.9      
-## 
+##
 ## loaded via a namespace (and not attached):
 ##  [1] codetools_0.2-8  digest_0.6.0     evaluate_0.4.3   formatR_0.7     
 ##  [5] grid_2.15.2      iterators_1.0.6  rstudio_0.97.248 slam_0.1-26     
 ##  [9] stringr_0.6.1    tools_2.15.2
 {% endhighlight %}
-

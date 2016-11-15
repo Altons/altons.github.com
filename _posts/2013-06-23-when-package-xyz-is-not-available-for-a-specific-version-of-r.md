@@ -2,7 +2,7 @@
 layout: post
 title: "When package XYZ is not available for a specific version of R"
 description: ""
-category: r
+category: rstats
 tags: [rstats,R,tutorial]
 ---
 {% include JB/setup %}
@@ -38,5 +38,3 @@ install.packages("/path/to/file/packageName.tgz",repos = NULL, type="source")
 and Voila! your package is now available for your version of R.
 
 > Note: If package has dependencies you may try to install them using the standard install.packages() and if they are not available then do the above steps.
-
-

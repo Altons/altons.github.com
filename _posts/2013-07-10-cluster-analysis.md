@@ -2,7 +2,7 @@
 layout: post
 title: "Cluster Analysis"
 description: ""
-category: r
+category: rstats
 tags: [rstats,R,tutorial]
 ---
 
@@ -17,7 +17,7 @@ When possible, I'll try to provide different approaches to achieve the same resu
 
 For this example I'm going to use the water-treatment data set from [UCI](http://archive.ics.uci.edu/ml/datasets/Water+Treatment+Plant)
 
-This dataset comes from the daily measures of sensors in a urban waste water treatment plant. The objective is to classify the operational state of the plant in order to predict faults through the state variables of the plant at each of the stages of the treatment process. 
+This dataset comes from the daily measures of sensors in a urban waste water treatment plant. The objective is to classify the operational state of the plant in order to predict faults through the state variables of the plant at each of the stages of the treatment process.
 
 Data Set Description
 -
@@ -29,7 +29,7 @@ Data Set Description
 There are some missing values, all are unknown information.
 
 Comments to the data file:
-   
+
 The first element of each line is the day of the data, the rest are the attribute values
 
 ###Attributes
@@ -38,32 +38,32 @@ The first element of each line is the day of the data, the rest are the attribut
 N.  Attrib.    
  1  Q-E        (input flow to plant)  
  2  ZN-E       (input Zinc to plant)
- 3  PH-E       (input pH to plant) 
- 4  DBO-E      (input Biological demand of oxygen to plant) 
+ 3  PH-E       (input pH to plant)
+ 4  DBO-E      (input Biological demand of oxygen to plant)
  5  DQO-E      (input chemical demand of oxygen to plant)
  6  SS-E       (input suspended solids to plant)  
  7  SSV-E      (input volatile supended solids to plant)
- 8  SED-E      (input sediments to plant) 
- 9  COND-E     (input conductivity to plant) 
+ 8  SED-E      (input sediments to plant)
+ 9  COND-E     (input conductivity to plant)
 10  PH-P       (input pH to primary settler)
 11  DBO-P      (input Biological demand of oxygen to primary settler)
 12  SS-P       (input suspended solids to primary settler)
 13  SSV-P      (input volatile supended solids to primary settler)
-14  SED-P      (input sediments to primary settler) 
+14  SED-P      (input sediments to primary settler)
 15  COND-P     (input conductivity to primary settler)
-16  PH-D       (input pH to secondary settler) 
+16  PH-D       (input pH to secondary settler)
 17  DBO-D      (input Biological demand of oxygen to secondary settler)
 18  DQO-D      (input chemical demand of oxygen to secondary settler)
 19  SS-D       (input suspended solids to secondary settler)
 20  SSV-D      (input volatile supended solids to secondary settler)
 21  SED-D      (input sediments to secondary settler)  
-22  COND-D     (input conductivity to secondary settler) 
+22  COND-D     (input conductivity to secondary settler)
 23  PH-S       (output pH)   
 24  DBO-S      (output Biological demand of oxygen)
 25  DQO-S      (output chemical demand of oxygen)
 26  SS-S       (output suspended solids)
-27  SSV-S      (output volatile supended solids) 
-28  SED-S      (output sediments) 
+27  SSV-S      (output volatile supended solids)
+28  SED-S      (output sediments)
 29  COND-S     (output conductivity)
 30  RD-DBO-P   (performance input Biological demand of oxygen in primary settler)
 31  RD-SS-P    (performance input suspended solids to primary settler)
@@ -72,10 +72,10 @@ N.  Attrib.
 34  RD-DQO-S   (performance input chemical demand of oxygen to secondary settler)
 35  RD-DBO-G   (global performance input Biological demand of oxygen)
 36  RD-DQO-G   (global performance input chemical demand of oxygen)
-37  RD-SS-G    (global performance input suspended solids) 
+37  RD-SS-G    (global performance input suspended solids)
 38  RD-SED-G   (global performance input sediments)
 ```
- 
+
 Data Preparation
 -
 
@@ -90,10 +90,10 @@ water.treatment$V1 = NULL
 
 {% highlight r %}
 # rename variables to something more friendly
-colnames(water.treatment) = c("Q_E", "ZN_E", "PH_E", "DBO_E", "DQO_E", "SS_E", 
-    "SSV_E", "SED_E", "COND_E", "PH_P", "DBO_P", "SS_P", "SSV_P", "SED_P", "COND_P", 
-    "PH_D", "DBO_D", "DQO_D", "SS_D", "SSV_D", "SED_D", "COND_D", "PH_S", "DBO_S", 
-    "DQO_S", "SS_S", "SSV_S", "SED_S", "COND_S", "RD_DBO_P", "RD_SS_P", "RD_SED_P", 
+colnames(water.treatment) = c("Q_E", "ZN_E", "PH_E", "DBO_E", "DQO_E", "SS_E",
+    "SSV_E", "SED_E", "COND_E", "PH_P", "DBO_P", "SS_P", "SSV_P", "SED_P", "COND_P",
+    "PH_D", "DBO_D", "DQO_D", "SS_D", "SSV_D", "SED_D", "COND_D", "PH_S", "DBO_S",
+    "DQO_S", "SS_S", "SSV_S", "SED_S", "COND_S", "RD_DBO_P", "RD_SS_P", "RD_SED_P",
     "RD_DBO_S", "RD_DQO_S", "RD_DBO_G", "RD_DQO_G", "RD_SS_G", "RD_SED_G")
 {% endhighlight %}
 
@@ -106,19 +106,19 @@ apply(water.treatment, 2, class)
 
 
 {% highlight text %}
-##         Q_E        ZN_E        PH_E       DBO_E       DQO_E        SS_E 
-## "character" "character" "character" "character" "character" "character" 
-##       SSV_E       SED_E      COND_E        PH_P       DBO_P        SS_P 
-## "character" "character" "character" "character" "character" "character" 
-##       SSV_P       SED_P      COND_P        PH_D       DBO_D       DQO_D 
-## "character" "character" "character" "character" "character" "character" 
-##        SS_D       SSV_D       SED_D      COND_D        PH_S       DBO_S 
-## "character" "character" "character" "character" "character" "character" 
-##       DQO_S        SS_S       SSV_S       SED_S      COND_S    RD_DBO_P 
-## "character" "character" "character" "character" "character" "character" 
-##     RD_SS_P    RD_SED_P    RD_DBO_S    RD_DQO_S    RD_DBO_G    RD_DQO_G 
-## "character" "character" "character" "character" "character" "character" 
-##     RD_SS_G    RD_SED_G 
+##         Q_E        ZN_E        PH_E       DBO_E       DQO_E        SS_E
+## "character" "character" "character" "character" "character" "character"
+##       SSV_E       SED_E      COND_E        PH_P       DBO_P        SS_P
+## "character" "character" "character" "character" "character" "character"
+##       SSV_P       SED_P      COND_P        PH_D       DBO_D       DQO_D
+## "character" "character" "character" "character" "character" "character"
+##        SS_D       SSV_D       SED_D      COND_D        PH_S       DBO_S
+## "character" "character" "character" "character" "character" "character"
+##       DQO_S        SS_S       SSV_S       SED_S      COND_S    RD_DBO_P
+## "character" "character" "character" "character" "character" "character"
+##     RD_SS_P    RD_SED_P    RD_DBO_S    RD_DQO_S    RD_DBO_G    RD_DQO_G
+## "character" "character" "character" "character" "character" "character"
+##     RD_SS_G    RD_SED_G
 ## "character" "character"
 {% endhighlight %}
 
@@ -249,17 +249,17 @@ sort(sk_ind)
 
 
 {% highlight text %}
-##  RD_SED_G  RD_DBO_G   RD_SS_G  RD_DBO_S  RD_SED_P  RD_DQO_G  RD_DQO_S 
-## -11.86161  -5.24580  -4.54156  -4.21696  -3.32192  -1.67071  -1.38834 
-##     SSV_E     SSV_P     SSV_D     SSV_S   RD_SS_P  RD_DBO_P      PH_D 
-##  -1.14369  -1.04507  -1.03271  -0.91374  -0.35996  -0.01697   0.03737 
-##     DQO_D      PH_E      PH_P     DBO_D       Q_E     DQO_E     DBO_E 
-##   0.03915   0.14153   0.24740   0.30907   0.47877   0.57821   0.80853 
-##    COND_D    COND_P    COND_E     DBO_P    COND_S      SS_D      PH_S 
-##   0.85505   0.89315   0.89893   0.98658   1.21396   1.81187   2.01946 
-##     DQO_S     SED_D      ZN_E      SS_P     SED_E     SED_P      SS_S 
-##   2.27587   3.40077   4.69888   5.37324   5.49156   5.79264   6.29553 
-##      SS_E     DBO_S     SED_S 
+##  RD_SED_G  RD_DBO_G   RD_SS_G  RD_DBO_S  RD_SED_P  RD_DQO_G  RD_DQO_S
+## -11.86161  -5.24580  -4.54156  -4.21696  -3.32192  -1.67071  -1.38834
+##     SSV_E     SSV_P     SSV_D     SSV_S   RD_SS_P  RD_DBO_P      PH_D
+##  -1.14369  -1.04507  -1.03271  -0.91374  -0.35996  -0.01697   0.03737
+##     DQO_D      PH_E      PH_P     DBO_D       Q_E     DQO_E     DBO_E
+##   0.03915   0.14153   0.24740   0.30907   0.47877   0.57821   0.80853
+##    COND_D    COND_P    COND_E     DBO_P    COND_S      SS_D      PH_S
+##   0.85505   0.89315   0.89893   0.98658   1.21396   1.81187   2.01946
+##     DQO_S     SED_D      ZN_E      SS_P     SED_E     SED_P      SS_S
+##   2.27587   3.40077   4.69888   5.37324   5.49156   5.79264   6.29553
+##      SS_E     DBO_S     SED_S
 ##   6.61849  11.36129  14.20156
 {% endhighlight %}
 
@@ -275,7 +275,7 @@ hist(water.treatment.imputed$RD_DBO_P)
 hist(water.treatment.imputed$SED_S)
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/check_skewness.png) 
+![center](/figs/2013-07-10-cluster-analysis/check_skewness.png)
 
 
 We can use Box-Cox transformations to try to fix/improve skeweness.
@@ -291,16 +291,16 @@ RD_DBO_S.trans
 
 {% highlight text %}
 ## Box-Cox Transformation
-## 
+##
 ## 527 data points used to estimate Lambda
-## 
+##
 ## Input data summary:
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##     8.2    80.5    85.0    82.9    87.7    94.7 
-## 
-## Largest/Smallest: 11.5 
-## Sample Skewness: -4.22 
-## 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+##     8.2    80.5    85.0    82.9    87.7    94.7
+##
+## Largest/Smallest: 11.5
+## Sample Skewness: -4.22
+##
 ## Estimated Lambda: 2
 {% endhighlight %}
 
@@ -314,7 +314,7 @@ hist(water.treatment.imputed$RD_DBO_S)
 hist(predict(RD_DBO_S.trans, water.treatment.imputed$RD_DBO_S))
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/Box-Cox.png) 
+![center](/figs/2013-07-10-cluster-analysis/Box-Cox.png)
 
 
 This is only for one variable so we need to do the above for all other variables with ill-skewness. Whilst we could wrap up the above piece of code in a function there is another way I call the **FastTrack** using the caret package.
@@ -323,7 +323,7 @@ The **FastTrack** uses the preProcess() function in the caret package to apply B
 
 
 {% highlight r %}
-trans = preProcess(as.data.frame(water.treatment.num), method = c("BoxCox", 
+trans = preProcess(as.data.frame(water.treatment.num), method = c("BoxCox",
     "center", "scale", "knnImpute"), k = 10)
 # Apply transformations
 water.treatment.transf = predict(trans, as.data.frame(water.treatment.num))
@@ -349,7 +349,7 @@ elbow = elbowGraph(cl$css)
 elbow
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/kmeans.png) 
+![center](/figs/2013-07-10-cluster-analysis/kmeans.png)
 
 
 > Note: You may get a slightly different graph as k-means always return different setups due to initial random selection.
@@ -369,7 +369,7 @@ fit1 = hclust(d, method = "ward")
 plot(fit1, labels = FALSE)  # display dendogram
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/hc.png) 
+![center](/figs/2013-07-10-cluster-analysis/hc.png)
 
 {% highlight r %}
 
@@ -391,7 +391,7 @@ plot(fit1, labels = FALSE)
 rect.hclust(fit1, k = 5, border = "blue")
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/dendograms.png) 
+![center](/figs/2013-07-10-cluster-analysis/dendograms.png)
 
 
 3 clusters seem like a potential solution. Let's see how looks like 3 clusters
@@ -403,7 +403,7 @@ source("../plot.kmeans2.R")
 plot.kmeans2(clus3, data = water.treatment.transf)
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/3clusters.png) 
+![center](/figs/2013-07-10-cluster-analysis/3clusters.png)
 
 
 
@@ -414,7 +414,7 @@ Another way of validating cluster is using the **clValid** are package. Google i
 
 {% highlight r %}
 library(clValid)
-intern = clValid(water.treatment.transf, 3:8, clMethods = c("hierarchical", 
+intern = clValid(water.treatment.transf, 3:8, clMethods = c("hierarchical",
     "kmeans", "pam"), validation = "internal")
 {% endhighlight %}
 
@@ -433,13 +433,13 @@ summary(intern)
 
 
 {% highlight text %}
-## 
+##
 ## Clustering Methods:
-##  hierarchical kmeans pam 
-## 
+##  hierarchical kmeans pam
+##
 ## Cluster sizes:
-##  3 4 5 6 7 8 
-## 
+##  3 4 5 6 7 8
+##
 ## Validation Measures:
 ##                                  3       4       5       6       7       8
 ##                                                                           
@@ -452,9 +452,9 @@ summary(intern)
 ## pam          Connectivity  272.549 325.534 373.498 404.961 456.599 475.980
 ##              Dunn            0.035   0.041   0.041   0.033   0.033   0.032
 ##              Silhouette      0.115   0.104   0.088   0.077   0.074   0.061
-## 
+##
 ## Optimal Scores:
-## 
+##
 ##              Score Method       Clusters
 ## Connectivity 5.858 hierarchical 3       
 ## Dunn         0.633 hierarchical 3       
@@ -465,7 +465,7 @@ summary(intern)
 
 {% highlight r %}
 
-stab = clValid(water.treatment.transf, 3:8, clMethods = c("hierarchical", "kmeans", 
+stab = clValid(water.treatment.transf, 3:8, clMethods = c("hierarchical", "kmeans",
     "pam"), validation = "stability")
 {% endhighlight %}
 
@@ -485,13 +485,13 @@ summary(stab)
 
 
 {% highlight text %}
-## 
+##
 ## Clustering Methods:
-##  hierarchical kmeans pam 
-## 
+##  hierarchical kmeans pam
+##
 ## Cluster sizes:
-##  3 4 5 6 7 8 
-## 
+##  3 4 5 6 7 8
+##
 ## Validation Measures:
 ##                       3     4     5     6     7     8
 ##                                                      
@@ -507,9 +507,9 @@ summary(stab)
 ##              AD   6.441 6.225 6.165 6.050 6.025 5.914
 ##              ADM  0.323 0.431 0.820 0.682 1.013 0.909
 ##              FOM  0.802 0.775 0.774 0.762 0.757 0.743
-## 
+##
 ## Optimal Scores:
-## 
+##
 ##     Score Method       Clusters
 ## APN 0.000 hierarchical 3       
 ## AD  5.914 pam          8       
@@ -527,7 +527,7 @@ source("../plot.kmeans2.R")
 plot.kmeans2(clus8, data = water.treatment.transf)
 {% endhighlight %}
 
-![center](/figs/2013-07-10-cluster-analysis/8clusters.png) 
+![center](/figs/2013-07-10-cluster-analysis/8clusters.png)
 
 
 So final solution at this stage will be 3 clusters. One also can isolate each cluster and try to find if there are meaningful sub-clusters by repeating the above process.
