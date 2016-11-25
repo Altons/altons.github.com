@@ -20,7 +20,7 @@ code{color:rgba(0, 0, 0, 0.75);padding:1px 3px;}
   margin: auto;
 }
 
-table {
+/*table {
     border: 1px solid #DFDFDF;
     background-color: #F9F9F9;
     width: 100%;
@@ -48,4 +48,12 @@ table {
     font-size: 12px;
     padding: 4px 7px 2px;
     vertical-align: top;
+}*/
+
+.mbtablestyle {
+        border-collapse: collapse;
+
+   > table, td, th {
+        border: 1px solid black;
+        }
 }

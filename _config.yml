@@ -5,7 +5,7 @@ permalink: /:categories/:year/:month/:day/:title/
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
 # pygments: true
-highlighter: rouge
+# highlighter: rouge
 safe : true
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
@@ -16,6 +16,9 @@ encoding: UTF-8
 
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 # redcarpet:
 #   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
@@ -71,7 +74,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://altons.github.io
+  BASE_PATH : false
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
