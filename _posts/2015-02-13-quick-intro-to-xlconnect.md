@@ -11,7 +11,7 @@ This doc is a quick tutorial for the **XLConnect R** package. **XLConnect** allo
 
 **XLConnect** allows you to produce formatted Excel reports, including graphics, straight from within R.This enables automation of manual formatting and reporting processes. Reading and writing named ranges enables you to process complex inputs and outputs in an efficient way.
 
-###Main Features
+### Main Features
 
 
 - Reading & writing of Excel worksheets (via data.frames)
@@ -31,7 +31,7 @@ This doc is a quick tutorial for the **XLConnect R** package. **XLConnect** allo
 
 <a id="index"></a>
 
-###Index
+### Index
 
 1. [Package Requirements](#req)
 2. [Installing XLConnect](#install)
@@ -50,7 +50,7 @@ This doc is a quick tutorial for the **XLConnect R** package. **XLConnect** allo
 
 <a id="req"></a>
 
-###Package Requirements
+### Package Requirements
 
 **XLConnect** is completely cross-platform and as such runs under Windows, Unix/Linux and Mac (32- and
 64-bit). It does not require an installation of Microsoft Excel, or any special drivers.
@@ -64,7 +64,7 @@ All you need to use XLConnect are the following:
 
 <a id="install"></a>
 
-###Installing XLConnect
+### Installing XLConnect
 
 
 {% highlight r %}
@@ -74,9 +74,10 @@ install.packages("XLConnect")
 
 
 
+
 <a id="basic"></a>
 
-###Loading XLConnect
+### Loading XLConnect
 
 
 {% highlight r %}
@@ -97,11 +98,12 @@ require(XLConnect)
 ## http://www.mirai-solutions.com ,
 ## http://miraisolutions.wordpress.com
 {% endhighlight %}
+
 [back to index](#index)
 
 <a id="load"></a>
 
-###Loading/Creating and Excel workbook
+### Loading/Creating and Excel workbook
 
 Whether you are creating or manipulating an existing is always a good practice to assign the workbook to a variable for further manipulation.
 
@@ -114,7 +116,7 @@ wb = loadWorkbook("../data/xlconnect1.xlsx",create=T)
 
 <a id="sheet"></a>
 
-###Creating Sheets
+### Creating Sheets
 
 **createSheet()** creates a sheet of a chosen name in the workbook specified as the object argument.
 
@@ -130,7 +132,7 @@ createSheet(wb,"Quakes location Fiji")
 
 <a id="worksheet"></a>
 
-###Writing data to WorkSheets
+### Writing data to WorkSheets
 **writeWorksheet()** writes data into a worksheet (name or index specified as the sheet argument) of an Excel workbook (object). The startRow and startCol are both 1 by default, meaning that if they are not explicitly specified, the data will start being filled into the A1 cell of the worksheet.
 
 
@@ -145,7 +147,7 @@ writeWorksheet(wb,quakes,"Quakes location Fiji")
 
 <a id="savebook"></a>
 
-###Saving Workbooks
+### Saving Workbooks
 
 Until now, everything you've done is in memory so you need to save your work to the disk. **saveWorkbook()** saves a workbook to the corresponding Excel file and writes the file to disk.
 
@@ -160,7 +162,7 @@ saveWorkbook(wb)
 
 <a id="example"></a>
 
-###Basic Example
+### Basic Example
 
 A complete basic example
 
@@ -175,7 +177,7 @@ saveWorkbook(wb1)
 
 <a id="readdata"></a>
 
-###Read Data from Worksheet
+### Read Data from Worksheet
 
 **readWorksheet()** allows for reading data from a workbook that has been previously loaded and is passed
 as the object argument. The name or index of the worksheet to read from should be passed as the sheet
@@ -206,7 +208,7 @@ summary(chick)
 
 <a id="readfile"></a>
 
-###Read Data straight from File
+### Read Data straight from File
 
 readWorksheetFromFile() allows for reading data from a workbook with one call, without loading the workbook first. The ``file`` argument is the path of the file to read from. All arguments of the ``readWorksheet()`` function can be passed within the ``’...’`` argument.
 
@@ -239,7 +241,7 @@ summary(iris)
 
 <a id="writefile"></a>
 
-###Write Data straight to File
+### Write Data straight to File
 
 ``writeWorksheetToFile()`` is a wrapper function, calling ``loadWorkbook()``, ``createSheet()`` and ``saveWorkbook()``
 functions subsequently. It therefore allows for writing data into worksheets of an Excel file in one call.
@@ -258,7 +260,7 @@ writeWorksheetToFile("../data/example2.xlsx",data=iris,sheet="iris3")
 
 <a id="regions"></a>
 
-###Named Regions
+### Named Regions
 
 A Named Range or region is way to describe your formulas. So you don't have to have this in a cell:
 
@@ -304,11 +306,13 @@ inv_company = data.frame(id='RoundHouse Kick')
 items =data.frame(description=c("Nunchakus","Karate GI","Black Belt"),unit=c(3,5,1),price=c(3.95,45,7))
 
 ### Load xls template in memory
+
 invoice_wb = loadWorkbook("../data/invoice_template.xlsx")
 ###Using XLConnect you normally overwrite the cell styles unless you set the style action to be "none" using
 setStyleAction(invoice_wb,XLC$"STYLE_ACTION.NONE")
 
 ### Insert inv_id in the template
+
 writeNamedRegion(invoice_wb, inv_id, name = "rngInvoice", header=F)
 ### Insert inv_date in the template
 writeNamedRegion(invoice_wb, inv_date, name = "invoice_date", header=F)
@@ -333,7 +337,7 @@ saveWorkbook(invoice_wb, "../data/invoice_20141117.xlsx")
 
 <a id="further"></a>
 
-###Further Readings
+### Further Readings
 
 - [http://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf](http://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf)
 
@@ -341,7 +345,7 @@ saveWorkbook(invoice_wb, "../data/invoice_20141117.xlsx")
 
 <a id="session"></a>
 
-###R Session
+### R Session
 
 
 {% highlight r %}

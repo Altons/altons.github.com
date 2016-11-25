@@ -14,8 +14,8 @@ tags: [octave, matlab, linear algebra, machine learning]
 **Last Update: 17<sup>th</sup> May 2013**
 
 
-Index
--
+## Index
+
 1. [Management & Help](#mng)
 2. [Shell Commands](#shell)
 3. [Special Operators](#spc)
@@ -35,47 +35,47 @@ Index
 17. [Other Cheat Sheets](#other)
 
 <a id="mng"></a>
-Management & Help
--
 
-Task | Command
+## Management & Help
+
+|---
+| Task | Command
 ---- | -------
-exits software | quit or exit
-list variables | who/whos
-deallocate variable(s) | clear ***varname***
-displays search path | path
-Adds path to search | addpath
-clear screen | clc
-list .m files in dir | what
-search for keyword | lookfor
-displays help for function | help ***funname***
-Parse and execute the contents of FILE | source(".octaverc")
-List installed packages | pkg list
-Install packages | pkg install [-auto or -noauto] pkg_name.tar.gz
-Describe packages | pkg describe **pkg_name**
-Load/Unload package | pkg load/unload **pkg_name**
-Uninstall package | pkg uninstall **pkg_name**
+| exits software | quit or exit
+| list variables | who/whos
+| deallocate variable(s) | clear ***varname***
+| displays search path | path
+|Adds path to search | addpath
+|clear screen | clc|
+|displays help for function | help ***funname***
+|Parse and execute the contents of FILE | source(".octaverc")
+|List installed packages | pkg list|
+|Install packages | pkg install [-auto or -noauto] pkg_name.tar.gz
+|Describe packages | pkg describe **pkg_name**
+|Load/Unload package | pkg load/unload **pkg_name**
+|Uninstall package | pkg uninstall **pkg_name**
+
 
 [back to index](#index)
 
 <a id="shell"></a>
-Shell Commands
--
 
+## Shell Commands
 
 Task | Command
 ---- | -------
-change working directory to dir | cd ***dirname*** 
-print working directory | pwd 
-print directory listing | ls 
-return value of named environment variable | getenv (string) 
-execute arbitrary shell command string | system (cmd) 
+change working directory to dir | cd ***dirname***
+print working directory | pwd
+print directory listing | ls
+return value of named environment variable | getenv (string)
+execute arbitrary shell command string | system (cmd)
 
 [back to index](#index)
 
 <a id="spc"></a>
-Special Operators
--
+
+## Special Operators
+
 
 Definition | Operator | Example
 ---------- | -------- | -------
@@ -90,8 +90,9 @@ do not display | ; | a=1;
 [back to index](#index)
 
 <a id="flow"></a>
-Workflow
--
+
+## Workflow
+
 Task | Command
 ---- | -------
 Suspend the execution of the program. | pause; or pause(5)
@@ -100,24 +101,25 @@ print string to the stout | fprintf("Hello World")
 [back to index](#index)
 
 <a id="array"></a>
-Vectors & Matrices
--
 
-#####Rules
+## Vectors & Matrices
+
+
+### Rules
 
 * Square brackets delimit literal matrices.
 * Commas separate elements on the same row.
-* Semicolons separate rows. 
-* Commas may be replaced by spaces, and 
-* semicolons may be replaced by one or more newlines. 
+* Semicolons separate rows.
+* Commas may be replaced by spaces, and
+* semicolons may be replaced by one or more newlines.
 * Elements of a matrix may be arbitrary expressions, provided that all the dimensions agree.
 * Optional: Matrices are denoted by uppercase letters A,B,X etc while vectors by lowercase letters a,b,y etc.
 
 Example | Expression
 ------- | ----------
-enter a row vector | \[ x, y, ... \] 
-enter a column vector | \[ x; y; ... \] 
-enter a 2×2 matrix | \[ w, x; y, z \] 
+enter a row vector | \[ x, y, ... \]
+enter a column vector | \[ x; y; ... \]
+enter a 2×2 matrix | \[ w, x; y, z \]
 Return a row vector with N linearly spaced elements between BASE and LIMIT|linspace (BASE, LIMIT, N)
 Similar to **linspace** except that the values are logarithmically spaced |  logspace(BASE, LIMIT, N)
 Higher Dimensional Arrays | B(z,y,z)=1
@@ -129,12 +131,13 @@ Return a vector of indices of a matrix | [i , j] = find(A<0.5)
 [back to index](#index)
 
 <a id="arrayop"></a>
-#####Array Operations
+
+### Array Operations
 
 Task | Function
 ---- | --------
-select elements of a vector | A(i) 
-select elements of a matrix | A(i,j) 
+select elements of a vector | A(i)
+select elements of a matrix | A(i,j)
 select rows (columns) corresponding to the elements of a range | A(1:2,1); A(1:2,1:5);
 select all rows (columns) | A(:,1); A(3,:);
 Delete a row/column of a matrix | A(2,:)= \[\] or A(:,5) = \[\]
@@ -142,13 +145,14 @@ Delete a row/column of a matrix | A(2,:)= \[\] or A(:,5) = \[\]
 [back to index](#index)
 
 <a id="algebra"></a>
-Linear Algebra
--
+
+### Linear Algebra
+
 
 Task | Function
 ---- | --------
-dimensions of the array | size 
-returns larger dimension |length 
+dimensions of the array | size
+returns larger dimension |length
 allocates array with 0’s | zeros
 allocates array with 1’s | ones
 transpose array | '
@@ -158,8 +162,8 @@ pseudo inverse of matrix | pinv
 Calculate Eigenvalues / Eigenvectors of matrix A | eig(A) or [V,L] = eig(A)
 Identity matrix | eye
 Compute the rank of a Matrix | rank(A)
-returns the lower triangular part of A | tril(A) 
-returns the upper triangular part of A | triu(A) 
+returns the lower triangular part of A | tril(A)
+returns the upper triangular part of A | triu(A)
 Create an N-by-N magic square | magic
 Compute the dot product of two vectors | dot(A,B)
 Compute the vector cross product of two 3-dimensional vectors X and Y | cross(X,Y)
@@ -167,8 +171,9 @@ Compute the vector cross product of two 3-dimensional vectors X and Y | cross(X,
 [back to index](#index)
 
 <a id="plot"></a>
-Plotting
--
+
+## Plotting
+
 
 Task | Command | Example
 ---- | ------- | -------
@@ -185,8 +190,9 @@ Display a legend for the axes | legend | plot(X,Y);legend('Temperature', 'Gas De
 [back to index](#index)
 
 <a id="math"></a>
-Math Functions
--
+
+## Math Functions
+
 
 Type        | Function    | Examples
 ------------- | ------------- | --------
@@ -212,10 +218,11 @@ Truncate fractional portion of X and return the integer portion| fix | fix(pi)
 [back to index](#index)
 
 <a id="stat"></a>
-Stats Functions
--
+
+## Stats Functions
+
 Task | Example  |Function
----- | -------- | ------- 
+---- | -------- | -------
 Uniform random numbers btw 0 and 1 (both excluded) | rand | rand(3,5)
 Normal(0,1) random numbers | randn | randn(1,3)
 Gamma distribution | randg | randg | randg(3,3)
@@ -227,14 +234,15 @@ Max value by column | max | max(A)
 [back to index](#index)
 
 <a id="const"></a>
-Constants
--
+
+## Constants
+
 
 Name  | Expression
 ----- | ----------  
 Default Variable | ans  
 Pi |  pi
-Euler's number |  e 
+Euler's number |  e
 Imaginary number |  i, j and I
 Infinity |  inf
 Not a Number |  NaN
@@ -244,28 +252,30 @@ true/false | logical 1/0
 [back to index](#index)
 
 <a id="logic"></a>
-Logical Operators
--
+
+## Logical Operators
+
 
 Expression | Operator
 -----------| --------
-is greater than | \> 
-is less than | < 
-is greater than or equal to | >= 
-is less than or equal to | <= 
-is equal to | == 
+is greater than | \>
+is less than | <
+is greater than or equal to | >=
+is less than or equal to | <=
+is equal to | ==
 is not equal to | ∼=  or !=
 AND with short circuiting | &&
-with short circuiting | &#124;&#124; 
+with short circuiting | &#124;&#124;
 AND | &
 OR | &#124;
-NOT | ∼ 
+NOT | ∼
 
 [back to index](#index)
 
 <a id="aux"></a>
-Auxiliary Functions
--
+
+## Auxiliary Functions
+
 
 Task | Function
 ---- | --------
@@ -278,8 +288,9 @@ Type info | typeinfo(b)
 [back to index](#index)
 
 <a id="str"></a>
-String Functions
--
+
+## String Functions
+
 Task | Function  | Example
 ---- | -------- | --------
 Compare 2 strings | strcmp | strcmp("hello","Hello")
@@ -287,8 +298,9 @@ Compare 2 strings | strcmp | strcmp("hello","Hello")
 [back to index](#index)
 
 <a id="data"></a>
-Import & Export Data
--
+
+## Import & Export Data
+
 Task | Command | Example
 ---- | ------- | -------
 Read the matrix DATA from a text file | dlmread (FILE, SEP, R0, C0) | dmlread("virus.dat",",",1,1);
@@ -299,10 +311,11 @@ Write csv files | csvwrite (FILENAME, X, DLM_OPTS) | csvwrite("output.csv", yhat
 [back to index](#index)
 
 <a id="func"></a>
-Defining Functions
--
 
-###Simplest Form
+## Defining Functions
+
+
+### Simplest Form
 
 ```matlab
   function name
@@ -332,7 +345,7 @@ Example:
   function wakeup (message)
         printf ("\a%s\n", message);
     end
-     
+
   wakeup ("Rise and shine!");
 ```
 
@@ -343,7 +356,7 @@ Example:
         body
     end
 ```
-    
+
 Example:
 
 ```matlab
@@ -398,7 +411,7 @@ Example:
      end
 ```     
 
-     
+
 > Note that the ***elseif*** keyword must not be spelled ***else if***, as is allowed in Fortran. If it is, the space between the ***else*** and ***if*** will tell Octave to treat this as a new ***if*** statement within another ***if*** statement's ***else*** clause
 
 ### SWITCH Statement
@@ -413,7 +426,7 @@ Example:
          do_something_completely_different ();
      end
 ```
-     
+
 Example:
 
 ```matlab
@@ -435,7 +448,7 @@ One advantage of using the ***switch*** statement compared to using ***if*** sta
        ...
      endswitch
 ```
-###WHILE Statement
+### WHILE Statement
 
 ```matlab
   while (condition)
@@ -492,11 +505,9 @@ Example:
 [back to index](#index)
 
 <a id="other"></a>
-###Other Cheat Sheets / Documentation
+
+### Other Cheat Sheets / Documentation
 
 * Octave/Matlab quick Reference <http://academic.macewan.ca/davisj80/files/2012/08/octave_qr.pdf>
 * Octave Quick Reference (V2.9.8) <http://folk.ntnu.no/joern/itgk/refcard-a4.pdf>
 * Official Documentation <http://www.gnu.org/software/octave/doc/interpreter/>
-
-
-
