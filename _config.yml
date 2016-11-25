@@ -4,22 +4,23 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
-pygments: true
+# pygments: true
+highlighter: rouge
 safe : true
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
 lsi: false
 
+encoding: UTF-8
 
 
-
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown: kramdown
+# redcarpet:
+#   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
 title : OutSpoken Data
-tagline: Site Tagline
+tagline: Data first!
 gravatar_url : 199e34f059d9f042d353e9dbf2dcec69.png
 
 
